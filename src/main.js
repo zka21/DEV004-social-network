@@ -6,18 +6,16 @@ import { register }from "./components/register.js";
 import { loginwithGoogle } from "./components/loginwithgoogle.js";
 import { login } from "./components/login.js";
 
-
 // myFunction();
 const rootDiv = document.getElementById("root");
-
 
 const routes = {
     '/' : welcome,
     '/login' : login,
     '/register' : register,
     '/loginwithGoogle' : loginwithGoogle,
-    '/content': content,
+    // '/content': content,
 }
 
 const components= routes[window.location.pathname];
-rootDiv.appendChild(components());
+rootDiv.appendChild(register());
