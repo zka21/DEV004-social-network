@@ -1,4 +1,4 @@
-const register = ()  => {
+export const register = ()  => {
     const divOfContentRegister = document.createElement("div");
     const divRegister = document.createElement("div");
     const divNames = document.createElement("div");
@@ -11,22 +11,23 @@ const register = ()  => {
     const buttonNextOfRegister = document.createElement("button");
 
     const nameInput = document.createElement("input");
-    const lastnameInput = document.createElemen("input");
+    const lastnameInput = document.createElement("input");
 
     imgOfRegister.src = "pruebadeimagen.jpg";
     h3OfRegister.textContent = "Crea tu cuenta";
     emailOfRegister.placeholder = "Correo electronico";
     passwordOfRegister.placeholder = "Contraseña";
     conditionOfRegister.textContent = "Al crear tu cuenta, estarás aceptando los términos y condiciones de Cáo";
-    buttonNextOfRegister.textContent = "SIGUIENTE";
+    buttonNextOfRegister.textContent = "Crear Cuenta";
 
     nameInput.placeholder = "Nombre";
     lastnameInput.placeholder = "Apellidos";
 
-    divContentOfRegister.append(divRegister, divNames);
+    divOfContentRegister.append(divRegister, divNames);
 
-    divRegister.append(imgOfRegister, h3OfRegister, emailOfRegister, passwordOfRegister, conditionOfRegister, buttonNextOfRegister);
+    divRegister.append(imgOfRegister, h3OfRegister);
     divNames.append(nameInput, lastnameInput);
-
+    divOfContentRegister.append(emailOfRegister, passwordOfRegister, conditionOfRegister, buttonNextOfRegister);
+    
     return divOfContentRegister;
 }
