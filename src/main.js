@@ -2,7 +2,7 @@
 
 // import { myFunction } from './lib/index.js';
 import { welcome } from "./components/welcome.js";
-import { register }from "./components/register.js";
+import { register } from "./components/register.js";
 import { loginwithGoogle } from "./components/loginwithgoogle.js";
 import { login } from "./components/login.js";
 
@@ -10,12 +10,12 @@ import { login } from "./components/login.js";
 const rootDiv = document.getElementById("root");
 
 const routes = {
-    '/' : welcome,
-    '/login' : login,
-    '/register' : register,
-    '/loginwithGoogle' : loginwithGoogle,
-    // '/content': content,
-}
+  "/": welcome,
+  "/login": login,
+  "/register": register,
+  "/loginwithGoogle": loginwithGoogle,
+  // '/content': content,
+};
 
-const components= routes[window.location.pathname];
+const components = routes[window.location.pathname];
 rootDiv.appendChild(register());
