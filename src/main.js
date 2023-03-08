@@ -18,4 +18,4 @@ const routes = {
 }
 
 const components= routes[window.location.pathname];
-rootDiv.appendChild(register());
+rootDiv.append(register());
