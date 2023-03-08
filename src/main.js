@@ -17,5 +17,9 @@ const routes = {
   // '/content': content,
 };
 
-const components = routes[window.location.pathname];
-rootDiv.appendChild(register());
+const components= routes[window.location.pathname];
+rootDiv.append(register());
+
+const onNavigate = (pathname)=> {
+    
+}
