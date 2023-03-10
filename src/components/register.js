@@ -1,5 +1,4 @@
-import { onNavigate } from '../main.js';
-export const register = () => {
+export const register = (onNavigate) => {
   const root = document.getElementById('root');
   root.innerHTML = `
     <section id="sectionOfContentRegister"> 
