@@ -2,10 +2,10 @@ export const welcome = (onNavigate) => {
   const root = document.getElementById('root');
   root.innerHTML = `
   <div>
-  <img id="imageLogo" src="./Imagenes/logo solo.png" alt="logocactus">
-  <button id="buttonLogin"> iniciar sesion </button>
-  <button> iniciar sesion con Google</button>
-  <button  id="buttonRegister"> crear cuenta</button>
+  <img class="imageLogo" src="./Imagenes/logo solo.png" alt="logocactus">
+  <button id="buttonLogin"> Iniciar sesion </button>
+  <button> Iniciar sesion con Google</button>
+  <button  id="buttonRegister"> Crear cuenta</button>
   </div>`;
   const buttonLogin = document.getElementById('buttonLogin');
   const buttonRegister = document.getElementById('buttonRegister');

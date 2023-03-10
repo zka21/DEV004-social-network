@@ -3,7 +3,7 @@ export const login = (onNavigate) => {
   root.innerHTML = `
   <section id="sectionOfLogin"> 
     <div id = "loginDiv">
-    <img id="imageLogo" src="./Imagenes/logo solo.png" alt="imagenLogo">
+    <img class="imageLogo" src="./Imagenes/logo solo.png" alt="imagenLogo">
     <h2>Inciar Sesión</h2>
     <div id = "userDiv">
       <input id="inputUser" type="email" placeholder= "Correo Electrónico"></input>
