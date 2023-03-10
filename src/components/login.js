@@ -1,23 +1,22 @@
 export const login = (onNavigate) => {
-  const loginDiv = document.createElement('div');
-  const loginWelcomeText = document.createTextNode('Iniciar Sesión');
-  const inputUser = document.createElement('input');
-  const inputPassword = document.createElement('input');
-  const buttonlogin = document.createElement('button');
-  const returnToWelcome = document.createElement('button');
+  const root = document.getElementById('root');
+  root.innerHTML = `
+  <section id="sectionOfLogin"> 
+    <div id = "loginDiv">
+    <img class="imageLogo" src="./Imagenes/logo solo.png" alt="imagenLogo">
+    <h2>Inciar Sesión</h2>
+    <div id = "userDiv">
+      <input id="inputUser" type="email" placeholder= "Correo Electrónico"></input>
+      <input id="inputPassword" type="password" placeholder= "Contraseña"></input>
+    </div>
+    <div id="buttons">
+    <button id="buttonLogin">Siguiente</button>
+    <button id="returnToWelcome">Regresar al inicio</button>
+    </div>
+    </div>
+  </section>
+  `;
 
-  inputUser.setAttribute('value', 'Correo electrónico');
-  inputPassword.setAttribute('value', 'Contraseña');
-  buttonlogin.textContent = 'Siguiente';
-  returnToWelcome.textContent = 'Regresar al inicio';
-
+  const returnToWelcome = document.getElementById('returnToWelcome');
   returnToWelcome.addEventListener('click', () => onNavigate('/'));
-
-  loginDiv.appendChild(loginWelcomeText);
-  loginDiv.appendChild(inputUser);
-  loginDiv.appendChild(inputPassword);
-  loginDiv.appendChild(buttonlogin);
-  loginDiv.appendChild(returnToWelcome);
-
-  return loginDiv;
 };
