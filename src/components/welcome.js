@@ -1,22 +1,16 @@
 export const welcome = (onNavigate) => {
-  const welcomeDiv = document.createElement('div');
-  const buttonLogin = document.createElement('button');
-  const buttonRegister = document.createElement('button');
-  const buttonLoginWithGoogle = document.createElement('button');
-  const imageOfWelcome = document.createElement('img');
-
-  buttonLogin.textContent = 'Iniciar sesión';
-  buttonLoginWithGoogle.textContent = 'Iniciar sesión con Google';
-  buttonRegister.textContent = 'Crear cuenta nueva';
-  imageOfWelcome.src = 'logo.png'; // Formato de imagen PNG.
-
+  const root = document.getElementById("root");
+  root.innerHTML=`
+  <div>
+  <img src="./Imagenes/logo solo.png" alt="logocactus">
+  <button id="buttonLogin"> iniciar sesion </button>
+  <button> iniciar sesion con Google</button>
+  <button  id="buttonRegister"> crear cuenta</button>
+  </div>`
+  const buttonLogin = document.getElementById("buttonLogin");
+  const buttonRegister= document.getElementById("buttonRegister");
   buttonRegister.addEventListener('click', () => onNavigate('/register'));
   buttonLogin.addEventListener('click', () => onNavigate('/login'));
-
-  welcomeDiv.appendChild(buttonLogin);
-  welcomeDiv.appendChild(buttonLoginWithGoogle);
-  welcomeDiv.appendChild(buttonRegister);
-  welcomeDiv.appendChild(imageOfWelcome); // Falta agregar imagen logo
 
   return welcomeDiv;
 };
