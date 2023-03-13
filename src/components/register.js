@@ -1,3 +1,5 @@
+import { createUserWithPassword } from '../lib/index.js';
+
 export const register = (onNavigate) => {
   const root = document.getElementById('root');
   root.innerHTML = `
@@ -19,4 +21,12 @@ export const register = (onNavigate) => {
     `;
   const regresarAlInicio = document.getElementById('regresarAlInicio');
   regresarAlInicio.addEventListener('click', () => onNavigate('/'));
+
+  const emailInput = document.getElementById('emailInput');
+  const passwordInput = document.getElementById('passwordInput');
+
+  const crearCuenta = document.getElementById('buttonCrearCuenta');
+  crearCuenta.addEventListener('click', () => {
+    createUserWithPassword(emailInput.value, passwordInput.value);
+  });
 };
