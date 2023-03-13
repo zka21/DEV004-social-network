@@ -1,14 +1,22 @@
 export const welcome = (onNavigate) => {
   const root = document.getElementById('root');
+  // root.style.backgroundColor = '#E9ECE3';
+  // se envuelven los botones en un contenedor con la clase "button-container"
   root.innerHTML = `
-  <div>
-  <img class="imageLogo" src="./Imagenes/logo solo.png" alt="logocactus"><br><br>
-  <button id="buttonLogin"> Iniciar sesion </button> <br><br>
-  <button> Iniciar sesion con Google</button> <br><br>
-  <button  id="buttonRegister"> Crear cuenta</button>
+  <div class="button-container"> 
+  <div class="logo-container">
+  <img class="imageLogo" src="./Imagenes/logo solo.png" alt="logocactus"> <br>
+  <span class="logoText">Cáo</span><br>
+  </div>
+  <button id="buttonLogin"> INICIAR SESIÓN  </button> <br>
+  <button id="buttonGoogle"> INICIAR SESIÓN CON GOOGLE </button> <br>
+  <button  id="buttonRegister"> CREA CUENTA NUEVA</button>
   </div>`;
   const buttonLogin = document.getElementById('buttonLogin');
+  const buttonGoogle = document.getElementById('buttonGoogle');
   const buttonRegister = document.getElementById('buttonRegister');
+
   buttonRegister.addEventListener('click', () => onNavigate('/register'));
   buttonLogin.addEventListener('click', () => onNavigate('/login'));
+  buttonGoogle.addEventListener('click', () => onNavigate('/loginwithGoogle'));
 };

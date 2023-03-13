@@ -3,7 +3,7 @@
 // import { myFunction } from './lib/index.js';
 import { welcome } from './components/welcome.js';
 import { register } from './components/register.js';
-import { loginwithGoogle } from './components/loginwithgoogle.js';
+import { loginwithGoogle } from './components/loginwithGoogle.js';
 import { login } from './components/login.js';
 
 // myFunction();
