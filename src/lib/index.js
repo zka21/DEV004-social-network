@@ -1,5 +1,4 @@
 // aqui exportaras las funciones que necesites
-// eslint-disable-next-line import/no-unresolved
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../firebase/firebaseConfig.js';
 

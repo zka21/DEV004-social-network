@@ -3,7 +3,6 @@
   padding: 0;
   box-sizing: border-box;
 }
-
 .imageLogo {
   max-width: 150px;
   max-height: 150px;
@@ -56,9 +55,40 @@ body {
     justify-content: center;
     /* height: 100vh; */
     /* margin: 30px 0; */
-    /* height: 100%; */
-   
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
   
     #sectionOfLogin {
     display: flex;
