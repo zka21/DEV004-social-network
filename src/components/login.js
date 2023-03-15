@@ -3,7 +3,7 @@ export const login = (onNavigate) => {
   root.innerHTML = `
   <section id="sectionOfLogin"> 
   <div id="logoContainer">
-  <img class="imageLogo" src="./Imagenes/logo solo.png" alt="imagenLogo">
+  <img class="imageLogo" src="./Imagenes/logoSolo.png" alt="imagenLogo">
   </div>
   <div id="loginDiv">
     <h2 class="login-title">Iniciar Sesión</h2><br>
@@ -22,3 +22,7 @@ export const login = (onNavigate) => {
   const returnToWelcome = document.getElementById('returnToWelcome');
   returnToWelcome.addEventListener('click', () => onNavigate('/'));
 };
+const loginEmail=document.getElementById("inputUser");
+const loginPassword=document.getElementById("inputPassword");
+const buttonLogin=document.getElementById("buttonLogin");
+buttonLogin.addEventListener("click",() =>  )

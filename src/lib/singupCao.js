@@ -9,11 +9,23 @@ export const createUserWithPassword = async (email, password) => {
   const createdUser = await createUserWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
     const user = userCredential.user;
-    successText.document.textContent("Tu cuenta ha sido creada con exito.");
+    alert("Tu cuenta ha sido creada con exito.");
 })
   .catch((error) => {
     const errorCode = error.code;
-    const errorMessage = error.message;''
-    console.log(errorCode, errorMessage);
+    const errorMessage = error.message;
+    if(errorCode==="auth/invalid-email"){
+      alert("correo invalido")
+
+    }
+    else if (errorCode==="auth/email-already-in-use"){
+      alert("este correo esta registrado")
+    }
+    else if (errorCode==="auth/weak-password"){
+      alert("tu contraseña es debil")
+    }
+    else if (errorCode){
+      alert("algo salio mal, vuelve a intentarlo")
+    }
   })
 };
