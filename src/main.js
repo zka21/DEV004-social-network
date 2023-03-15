@@ -1,22 +1,18 @@
 // Este es el punto de entrada de tu aplicacion
 
-// import { myFunction } from './lib/index.js';
-import { collection, getDocs } from 'firebase/firestore';
 import { welcome } from './components/welcome.js';
 import { register } from './components/register.js';
-import { loginwithGoogle } from './components/loginwithGoogle.js';
 import { login } from './components/login.js';
+
+import { collection, getDocs } from 'firebase/firestore';
 import { dataBase } from './firebase/firebaseConfig.js';
 
-// myFunction();
 const rootDiv = document.getElementById('root');
 
 const routes = {
   '/': welcome,
   '/login': login,
   '/register': register,
-  '/loginwithGoogle': loginwithGoogle,
-  // '/content': content,
 };
 
 export const App = () => {

@@ -4,14 +4,15 @@ export const welcome = (onNavigate) => {
   // se envuelven los botones en un contenedor con la clase "button-container"
   root.innerHTML = `
   <div class="button-container"> 
-  <div class="logo-container">
-  <img class="imageLogo" src="./Imagenes/logo solo.png" alt="logocactus"> <br>
-  <span class="logoText">Cáo</span><br>
-  </div>
-  <button id="buttonLogin"> INICIAR SESIÓN  </button> <br>
-  <button id="buttonGoogle"> INICIAR SESIÓN CON GOOGLE </button> <br>
-  <button  id="buttonRegister"> CREA CUENTA NUEVA</button>
+    <div class="logo-container">
+      <img class="imageLogo" src="./Imagenes/logoSolo.png" alt="logocactus"> <br>
+      <span class="logoText">Cáo</span><br>
+    </div>
+    <button id="buttonLogin"> INICIAR SESIÓN  </button> <br>
+    <button id="buttonGoogle"> INICIAR SESIÓN CON GOOGLE </button> <br>
+    <button  id="buttonRegister"> CREA CUENTA NUEVA</button>
   </div>`;
+
   const buttonLogin = document.getElementById('buttonLogin');
   const buttonGoogle = document.getElementById('buttonGoogle');
   const buttonRegister = document.getElementById('buttonRegister');

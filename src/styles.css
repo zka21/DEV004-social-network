@@ -32,8 +32,8 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bolder;
     margin: 0px;
-    width: 250px;
-    height: 45px;
+    width:  303px;
+    height: 40px;
   }
   button:hover {
     background-color: #8EC63F;
@@ -55,5 +55,37 @@ body {
     align-items: center;
     justify-content: center;
     /* height: 100%; */
+  }
+  /* ...... */
+  #sectionOfContentRegister{
+    background-image: url("https://i.pinimg.com/564x/11/15/6d/11156d10e37e66bc56f6011fc8089743.jpg") ;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+
+  .greenText {
+    color: #046425;
+  }
+  .buttonsTogether{
+    width:  150px;
+    height: 40px;
+  }
+  .highlightedText{
+    color: #8EC63F;
+  }
+  .inputNames{
+    color: #A39F9F;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    width: 150px;
+  }
+  #emailInput{
+    width: 303px;
+  }
+  #passwordInput{
+    width: 303px;
   }
  
