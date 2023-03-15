@@ -3,19 +3,25 @@ import { createUserWithPassword } from '../lib/index.js';
 export const register = (onNavigate) => {
   const root = document.getElementById('root');
   root.innerHTML = `
-    <section id="sectionOfContentRegister"> 
-      <div id="divRegister">
-        <img src="aqui ira iamgen de captus con flores">
-        <h3 id="h3OfRegister"></h3>
-        <div id="divNames">
-            <input id="nameInput" type="text" placeholder="Nombre">
-            <input id="lastnameInput" type="text" placeholder="Apellidos"> 
-        </div>
-        <input id="emailInput" type="email" placeholder ="Correo electronico">
-        <input id="passwordInput" type="password" placeholder="Contraseña">
-        <h6 id="conditionOfRegister">Al crear tu cuenta, estarás aceptando los términos y condiciones de Cáo</h6>
-        <button id="buttonCrearCuenta">Crear Cuenta</button>
-        <button id="regresarAlInicio">Regresar al inicio</button>
+    <section id="sectionOfContentRegister" class="button-container"> 
+
+      <div id="logo" class="logo-container">
+        <img class="imageLogo" src="./Imagenes/logoSolo.png">
+      </div>
+
+      <h3 id="h3OfRegister" class="greenText">Crea tu cuenta</h3><br>
+
+      <div id="divNames">
+          <input id="nameInput" class="inputNames" type="text" placeholder="Nombre">
+          <input id="lastnameInput" class="inputNames" type="text" placeholder="Apellidos"> 
+      </div> <br>
+
+      <input id="emailInput" class="inputNames" type="email" placeholder ="Correo electronico"> <br>
+      <input id="passwordInput"class="inputNames" type="password" placeholder="Contraseña"><br>
+      <h6 id="conditionOfRegister" class="greenText">Al crear tu cuenta, estarás aceptando los <br> <spam class="highlightedText" >términos y condiciones</spam> de Cáo</h6><br>
+      <div id="divButtons">
+        <button id="buttonCrearCuenta" class="buttonsTogether">Crear Cuenta</button>
+        <button id="regresarAlInicio" class="buttonsTogether">Regresar al inicio</button>
       </div>
     </section>
     `;
@@ -23,10 +29,14 @@ export const register = (onNavigate) => {
   regresarAlInicio.addEventListener('click', () => onNavigate('/'));
 
   const emailInput = document.getElementById('emailInput');
+  const nameInput = document.getElementById('nameInput');
+  const lastnameInput = document.getElementById('lastnameInput');
   const passwordInput = document.getElementById('passwordInput');
 
   const crearCuenta = document.getElementById('buttonCrearCuenta');
-  crearCuenta.addEventListener('click', () => {
-    createUserWithPassword(emailInput.value, passwordInput.value);
+  crearCuenta.addEventListener('click', async () => {
+    // const displayName = nameInput.value + lastnameInput.value;
+    const userCreated = await createUserWithPassword(emailInput.value, passwordInput.value);
+    console.log(userCreated);
   });
 };
