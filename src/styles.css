@@ -47,13 +47,87 @@ body {
     font-family:sans-serif;
     font-weight: bolder;
     text-shadow: 1px 1px 2px #141414;
-    /* margin-bottom: 0px;  */
+    /* margin-bottom: 0px; */
   }
   .logo-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    /* height: 100vh; */
+    /* margin: 30px 0; */
     /* height: 100%; */
+   
   }
+  
+    #sectionOfLogin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    flex-direction: column;
+  }
+  #loginDiv {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  }
+  #userDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  #inputUser,
+  #inputPassword {
+  width: 100%;/* Nueva anchura de cuadro input*/
+  max-width: 300px;
+  margin-bottom: 10px;
+  height: 40px; /* Nueva altura */
+}
+#buttons {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  #loginDiv h2 {
+    color: #046425;
+    text-align: left;
+    margin-left: 10px;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 16px;
+    margin: 2px;
+    align-self: flex-start;
+  }
+  input {
+    box-sizing: border-box; /* El ancho incluye el borde y el relleno */
+    border: 1px solid #8A8989; /* Borde de 1px con color gris */
+    border-radius: 5px; /* Bordes redondeados de 5px */
+    padding: 10px; /* Espacio de relleno de 10px */
+    font-size: 16px; /* Tamaño de fuente de 16px */
+    background-color: #f2f2f2; /* Color de fondo gris claro */
+    color: #333; /* Color del texto negro */
+  }
+  input:hover {
+    background-color: #ddd; /* Color de fondo gris más oscuro */
+    border: 1px solid #aaa; /* Borde de 1px con color gris más oscuro */
+  }
+  input:focus {
+    outline: none; /* Quita el borde predeterminado del input */
+    border: 1px solid #007bff; /* Borde de 1px con color azul para diferenciar */
+  }
+ 
  
