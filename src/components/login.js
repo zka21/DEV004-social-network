@@ -22,7 +22,7 @@ export const login = (onNavigate) => {
   const returnToWelcome = document.getElementById('returnToWelcome');
   returnToWelcome.addEventListener('click', () => onNavigate('/'));
 };
-const loginEmail=document.getElementById("inputUser");
-const loginPassword=document.getElementById("inputPassword");
-const buttonLogin=document.getElementById("buttonLogin");
+const loginEmail = document.getElementById('inputUser');
+const loginPassword = document.getElementById('inputPassword');
+const buttonLogin = document.getElementById('buttonLogin');
 // buttonLogin.addEventListener("click",() =>  )

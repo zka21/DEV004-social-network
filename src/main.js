@@ -1,10 +1,10 @@
 // Este es el punto de entrada de tu aplicacion
 
+import { collection, getDocs } from 'firebase/firestore';
 import { welcome } from './components/welcome.js';
 import { register } from './components/register.js';
 import { login } from './components/login.js';
 
-import { collection, getDocs } from 'firebase/firestore';
 import { dataBase } from './firebase/firebaseConfig.js';
 
 const rootDiv = document.getElementById('root');

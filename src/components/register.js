@@ -1,9 +1,5 @@
-import { createUserWithPassword } from '../lib/Firebasefunction.js';
-
-
-export const successText = document.getElementById("successText");
-
-
+import { createUserWithPassword } from '../lib/firebaseFunctions.js';
+export const successText = document.getElementById('successText');
 export const register = (onNavigate) => {
   const root = document.getElementById('root');
   root.innerHTML = `
@@ -41,27 +37,23 @@ export const register = (onNavigate) => {
   const crearCuenta = document.getElementById('buttonCrearCuenta');
   crearCuenta.addEventListener('click', async () => {
     // const displayName = nameInput.value + lastnameInput.value;
-   
+
     try {
-    const userCreated = await createUserWithPassword(emailInput.value, passwordInput.value);
-      const user=userCreated.user;
-      alert("Tu cuenta ha sido creada con exito.");
+      const userCreated = await createUserWithPassword(emailInput.value, passwordInput.value);
+      const user = userCreated.user;
+      alert('Tu cuenta ha sido creada con exito.');
     } catch (error) {
       const errorCode = error.code;
-           const errorMessage = error.message;
-           if(errorCode==="auth/invalid-email"){
-             alert("correo invalido")
-      
-          }
-           else if (errorCode==="auth/email-already-in-use"){
-             alert("este correo esta registrado")
-          }
-         else if (errorCode==="auth/weak-password"){
-            alert("tu contraseña es debil")
-          }
-           else if (errorCode){
-             alert("algo salio mal, vuelve")
+      const errorMessage = error.message;
+      if (errorCode === 'auth/invalid-email') {
+        alert('correo invalido');
+      } else if (errorCode === 'auth/email-already-in-use') {
+        alert('este correo esta registrado');
+      } else if (errorCode === 'auth/weak-password') {
+        alert('tu contraseña es debil');
+      } else if (errorCode) {
+        alert('algo salio mal, vuelve');
+      }
     }
-  }
-  })
+  });
 };
