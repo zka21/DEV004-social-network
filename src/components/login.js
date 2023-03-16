@@ -25,4 +25,4 @@ export const login = (onNavigate) => {
 const loginEmail=document.getElementById("inputUser");
 const loginPassword=document.getElementById("inputPassword");
 const buttonLogin=document.getElementById("buttonLogin");
-buttonLogin.addEventListener("click",() =>  )
+// buttonLogin.addEventListener("click",() =>  )
