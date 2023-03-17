@@ -1,5 +1,6 @@
 import { createUserWithPassword } from '../lib/firebaseFunctions.js';
 export const successText = document.getElementById('successText');
+
 export const register = (onNavigate) => {
   const root = document.getElementById('root');
   root.innerHTML = `

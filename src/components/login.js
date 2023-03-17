@@ -1,3 +1,6 @@
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { async } from "regenerator-runtime";
+
 export const login = (onNavigate) => {
   const root = document.getElementById('root');
   root.innerHTML = `
@@ -21,8 +24,20 @@ export const login = (onNavigate) => {
 
   const returnToWelcome = document.getElementById('returnToWelcome');
   returnToWelcome.addEventListener('click', () => onNavigate('/'));
+  const loginEmail = document.getElementById('inputUser');
+  const loginPassword = document.getElementById('inputPassword');
+  const buttonLogin = document.getElementById('buttonLogin');
+
+  buttonLogin.addEventListener('click', () => {
+    const signIn = signInWithEmailAndPassword(loginEmail.value, loginPassword.value)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        console.log("then sirve");
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log("catch error");
+      });
+  });
 };
-const loginEmail = document.getElementById('inputUser');
-const loginPassword = document.getElementById('inputPassword');
-const buttonLogin = document.getElementById('buttonLogin');
-// buttonLogin.addEventListener("click",() =>  )
