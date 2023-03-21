@@ -48,6 +48,9 @@ export const register = (onNavigate) => {
       statusDiv.classList.add('statusTextR');
       statusDiv.style.color = 'green';
       statusDiv.innerHTML = 'Your account has been succesfully created';
+      setTimeout(() => {
+        onNavigate('/login');
+      }, 2000);
     } catch (error) {
       const errorCode = error.code;
       const statusDiv = document.getElementById('statusText');
