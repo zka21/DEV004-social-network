@@ -1,5 +1,4 @@
 import { createUserWithPassword } from '../lib/firebaseFunctions.js';
-export const successText = document.getElementById('successText');
 
 export const register = (onNavigate) => {
   const root = document.getElementById('root');
@@ -19,7 +18,7 @@ export const register = (onNavigate) => {
 
       <input id="emailInput" class="inputNames" type="email" placeholder ="Correo electronico"> <br>
       <input id="passwordInput" class="inputNames" type="password" placeholder="Contraseña"><br>
-      <p id="successText"></p><br>
+      <p id="statusText"></p><br>
       <h6 id="conditionOfRegister" class="greenText">Al crear tu cuenta, estarás aceptando los <br> <spam class="highlightedText" >términos y condiciones</spam> de Cáo</h6><br>
       <div id="divButtons">
         <button id="buttonCrearCuenta" class="buttonsTogether">Crear Cuenta</button>
@@ -42,18 +41,19 @@ export const register = (onNavigate) => {
     try {
       const userCreated = await createUserWithPassword(emailInput.value, passwordInput.value);
       const user = userCreated.user;
-      alert('Tu cuenta ha sido creada con exito.');
+      document.getElementById('statusText').style.color = 'green';
+      document.getElementById('statusText').innerHTML = 'Your account has been succesfully created';
     } catch (error) {
       const errorCode = error.code;
-      const errorMessage = error.message;
+      document.getElementById('statusText').style.color = 'red';
       if (errorCode === 'auth/invalid-email') {
-        alert('correo invalido');
+        document.getElementById('statusText').innerHTML = 'Invalid email. Try again';
       } else if (errorCode === 'auth/email-already-in-use') {
-        alert('este correo esta registrado');
+        document.getElementById('statusText').innerHTML = 'This email is already in use';
       } else if (errorCode === 'auth/weak-password') {
-        alert('tu contraseña es debil');
+        document.getElementById('statusText').innerHTML = 'Your password is weak. Try more charachters';
       } else if (errorCode) {
-        alert('algo salio mal, vuelve');
+        document.getElementById('statusText').innerHTML = 'Something went wrong';
       }
     }
   });
