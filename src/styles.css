@@ -168,3 +168,20 @@ body {
     outline: none; /* Quita el borde predeterminado del input */
     border: 1px solid #007bff; /* Borde de 1px con color azul para diferenciar */
   }
+
+  .statusTextR {
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    padding: 10px;
+    background-color: rgba(51, 170, 51, .2);
+    border-color: #e86666;
+    border-radius: 10px;
+  }
+
+  .statusTextW {
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    padding: 10px;
+    background-color: rgba(241, 130, 141, .2);
+    border-color: #e86666;
+    border-radius: 10px;
+  }
+
