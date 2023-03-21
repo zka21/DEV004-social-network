@@ -20,7 +20,7 @@ export const register = (onNavigate) => {
       <input id="emailInput" class="inputNames" type="email" placeholder ="Correo electronico"> <br>
       <input id="passwordInput" class="inputNames" type="password" placeholder="Contraseña"><br>
       <p id="successText"></p><br>
-      <h6 id="conditionOfRegister" class="greenText">Al crear tu cuenta, estarás aceptando los <br> <spam class="highlightedText" >términos y condiciones</spam> de Cáo</h6><br>
+      <h6 id="conditionOfRegister" class="greenText">Al crear tu cuenta, estarás aceptando los <br> <spam class="highlightedText" >términos y condiciones</spam> de Cáo </h6><br>
       <div id="divButtons">
         <button id="buttonCrearCuenta" class="buttonsTogether">Crear Cuenta</button>
         <button id="regresarAlInicio" class="buttonsTogether">Regresar al inicio</button>
