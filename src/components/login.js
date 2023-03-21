@@ -37,7 +37,11 @@ export const login = (onNavigate) => {
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        console.log("catch error");
+        console.log(errorMessage);
       });
+
+
   });
+
+  buttonLogin.addEventListener('click', () => onNavigate('/posts'))
 };
