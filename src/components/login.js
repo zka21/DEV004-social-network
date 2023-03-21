@@ -1,5 +1,6 @@
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmail } from '../lib/firebaseFunctions.js';
 import { async } from "regenerator-runtime";
+
 
 export const login = (onNavigate) => {
   const root = document.getElementById('root');
@@ -29,7 +30,7 @@ export const login = (onNavigate) => {
   const buttonLogin = document.getElementById('buttonLogin');
 
   buttonLogin.addEventListener('click', () => {
-    const signIn = signInWithEmailAndPassword(loginEmail.value, loginPassword.value)
+    const signIn = signInWithEmail(loginEmail.value, loginPassword.value)
       .then((userCredential) => {
         const user = userCredential.user;
         console.log("then sirve");
@@ -37,7 +38,9 @@ export const login = (onNavigate) => {
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
+
         console.log(errorMessage);
+
       });
 
 

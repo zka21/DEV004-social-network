@@ -2,7 +2,6 @@
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
 import { documentId } from 'firebase/firestore';
 import { auth } from '../firebase/firebaseConfig.js';
-import { successText } from '../components/register.js';
 
 
 export const createUserWithPassword = (email, password) => {
