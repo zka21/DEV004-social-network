@@ -4,6 +4,7 @@ import { collection, getDocs } from 'firebase/firestore';
 import { welcome } from './components/welcome.js';
 import { register } from './components/register.js';
 import { login } from './components/login.js';
+import { posts } from './components/posts.js';
 
 import { dataBase } from './firebase/firebaseConfig.js';
 
@@ -13,6 +14,7 @@ const routes = {
   '/': welcome,
   '/login': login,
   '/register': register,
+  '/posts': posts,
 };
 
 export const App = () => {
