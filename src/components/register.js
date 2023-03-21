@@ -43,19 +43,25 @@ export const register = (onNavigate) => {
     try {
       const userCreated = await createUserWithPassword(emailInput.value, passwordInput.value);
       const user = userCreated.user;
-      document.getElementById('statusText').style.color = 'green';
-      document.getElementById('statusText').innerHTML = 'Your account has been succesfully created';
+      const statusDiv = document.getElementById('statusText');
+      statusDiv.classList.remove('statusTextW');
+      statusDiv.classList.add('statusTextR');
+      statusDiv.style.color = 'green';
+      statusDiv.innerHTML = 'Your account has been succesfully created';
     } catch (error) {
       const errorCode = error.code;
-      document.getElementById('statusText').style.color = 'red';
+      const statusDiv = document.getElementById('statusText');
+      statusDiv.classList.remove('statusTextR');
+      statusDiv.classList.add('statusTextW');
+      statusDiv.style.color = 'red';
       if (errorCode === 'auth/invalid-email') {
-        document.getElementById('statusText').innerHTML = 'Invalid email. Try again';
+        statusDiv.innerHTML = 'Invalid email. Try again';
       } else if (errorCode === 'auth/email-already-in-use') {
-        document.getElementById('statusText').innerHTML = 'This email is already in use';
+        statusDiv.innerHTML = 'This email is already in use. Try a new one';
       } else if (errorCode === 'auth/weak-password') {
-        document.getElementById('statusText').innerHTML = 'Your password is weak. Try more charachters';
+        statusDiv.innerHTML = 'Your password is weak. Try more charachters';
       } else if (errorCode) {
-        document.getElementById('statusText').innerHTML = 'Something went wrong';
+        statusDiv.innerHTML = 'Something went wrong';
       }
     }
   });
