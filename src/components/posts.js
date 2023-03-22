@@ -9,8 +9,12 @@ export const posts = (onNavigate) => {
         </div>
 
         <div id = "newPost">
+        <div class="postContainer">
             <textarea id="description" rows="6" cols="50" placeholder="cuentanos algo de las plantas"> </textarea> <br>
-            <button>Publicar</button>
+            
+            
+        </div>
+        <button>Publicar</button>
         </div>
 
         <line>____________________________________</line> <br><br>
