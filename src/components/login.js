@@ -33,6 +33,7 @@ export const login = (onNavigate) => {
     const signIn = signInWithEmail(loginEmail.value, loginPassword.value)
       .then((userCredential) => {
         const user = userCredential.user;
+
         console.log('then sirve');
         statusDiv.classList.remove('statusTextW');
         statusDiv.classList.add('statusTextR');
@@ -41,6 +42,7 @@ export const login = (onNavigate) => {
         setTimeout(() => {
           onNavigate('/posts');
         }, 1500);
+
       })
       .catch((error) => {
         const errorCode = error.code;
