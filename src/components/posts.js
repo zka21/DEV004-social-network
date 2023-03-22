@@ -4,7 +4,7 @@ export const posts = (onNavigate) => {
     <section id= "containerMain">
         <div id="partOfwelcome">
             <img src="./Imagenes/cactusFile.png"><br>
-            <button id="logOut">Login Out</button>
+            
             <h2>Bienvenido a Cáo</h2>
             <p>Cuentanos algo de las plantas</p>
         </div>
@@ -34,6 +34,7 @@ export const posts = (onNavigate) => {
 
         </div>
         <button>Me gusta</button>
+        <button id="logOut">Login Out</button>
     </section>
 
     <footer></footer>
