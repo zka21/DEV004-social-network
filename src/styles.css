@@ -175,6 +175,7 @@ body {
     background-color: rgba(51, 170, 51, .2);
     border-color: #e86666;
     border-radius: 10px;
+    text-align: center;
   }
 
   .statusTextW {
@@ -183,5 +184,6 @@ body {
     background-color: rgba(241, 130, 141, .2);
     border-color: #e86666;
     border-radius: 10px;
+    text-align: center;
   }
 

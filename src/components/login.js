@@ -1,6 +1,4 @@
 import { signInWithEmail } from '../lib/firebaseFunctions.js';
-import { async } from "regenerator-runtime";
-
 
 export const login = (onNavigate) => {
   const root = document.getElementById('root');
@@ -10,6 +8,7 @@ export const login = (onNavigate) => {
   <img class="imageLogo" src="./Imagenes/logoSolo.png" alt="imagenLogo">
   </div>
   <div id="loginDiv">
+    <p id="statusText"></p><br>
     <h2 class="login-title">Iniciar Sesión</h2><br>
     <div id = "userDiv">
       <input id="inputUser" type="email" placeholder= "Correo Electrónico"></input> <br>
@@ -30,21 +29,33 @@ export const login = (onNavigate) => {
   const buttonLogin = document.getElementById('buttonLogin');
 
   buttonLogin.addEventListener('click', () => {
+    const statusDiv = document.getElementById('statusText');
     const signIn = signInWithEmail(loginEmail.value, loginPassword.value)
       .then((userCredential) => {
         const user = userCredential.user;
-        console.log("then sirve");
+        console.log('then sirve');
+        statusDiv.classList.remove('statusTextW');
+        statusDiv.classList.add('statusTextR');
+        statusDiv.style.color = 'green';
+        statusDiv.innerHTML = 'Login succesful';
+        setTimeout(() => {
+          onNavigate('/posts');
+        }, 1500);
       })
       .catch((error) => {
         const errorCode = error.code;
-        const errorMessage = error.message;
-
-        console.log(errorMessage);
-
+        statusDiv.classList.remove('statusTextR');
+        statusDiv.classList.add('statusTextW');
+        statusDiv.style.color = 'red';
+        if (errorCode === 'auth/wrong-password') {
+          statusDiv.innerHTML = 'Your password is incorrect';
+        } else if (errorCode === 'auth/user-not-found') {
+          statusDiv.innerHTML = 'User not found';
+        } else if (errorCode === 'auth/invalid-email') {
+          statusDiv.innerHTML = 'Invalid email';
+        } else if (errorCode) {
+          statusDiv.innerHTML = 'Something went wrong';
+        }
       });
-
-
   });
-
-  buttonLogin.addEventListener('click', () => onNavigate('/posts'))
 };
