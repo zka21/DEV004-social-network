@@ -33,7 +33,9 @@ export const login = (onNavigate) => {
     const signIn = signInWithEmail(loginEmail.value, loginPassword.value)
       .then((userCredential) => {
         const user = userCredential.user;
-        console.log("then sirve");
+        setTimeout(() => {
+          onNavigate('/posts');
+        }, 3000);
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -45,6 +47,4 @@ export const login = (onNavigate) => {
 
 
   });
-
-  buttonLogin.addEventListener('click', () => onNavigate('/posts'))
 };

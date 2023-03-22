@@ -3,7 +3,8 @@ export const posts = (onNavigate) => {
     root.innerHTML = `
     <section id= "containerMain">
         <div id="partOfwelcome">
-            <img src="./Imagenes/cactusFile.png">
+            <img src="./Imagenes/cactusFile.png"><br>
+            <button id="logOut">Login Out</button>
             <h2>Bienvenido a Cáo</h2>
             <p>Cuentanos algo de las plantas</p>
         </div>
@@ -32,4 +33,7 @@ export const posts = (onNavigate) => {
     </section>
 
     <footer></footer>
-    `}
+    `
+    const logOut = document.getElementById('logOut');
+    logOut.addEventListener('click', () => onNavigate('/'));
+}
