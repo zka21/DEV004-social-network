@@ -33,8 +33,7 @@ export const login = (onNavigate) => {
     const signIn = signInWithEmail(loginEmail.value, loginPassword.value)
       .then((userCredential) => {
         const user = userCredential.user;
-
-        console.log('then sirve');
+        console.log(user);
         statusDiv.classList.remove('statusTextW');
         statusDiv.classList.add('statusTextR');
         statusDiv.style.color = 'green';
@@ -42,7 +41,6 @@ export const login = (onNavigate) => {
         setTimeout(() => {
           onNavigate('/posts');
         }, 1500);
-
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -50,7 +48,7 @@ export const login = (onNavigate) => {
         statusDiv.classList.add('statusTextW');
         statusDiv.style.color = 'red';
         if (errorCode === 'auth/wrong-password') {
-          statusDiv.innerHTML = 'Your password is incorrect';
+          statusDiv.innerHTML = 'Your password is incorrect. Try again';
         } else if (errorCode === 'auth/user-not-found') {
           statusDiv.innerHTML = 'User not found';
         } else if (errorCode === 'auth/invalid-email') {

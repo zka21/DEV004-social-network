@@ -1,8 +1,7 @@
 import { initializeApp } from 'firebase/app';
 // import { getAnalytics } from 'firebase/analytics';
 import { getFirestore } from 'firebase/firestore';
-import { getAuth } from 'firebase/auth';
-
+import { getAuth, GoogleAuthProvider} from 'firebase/auth';
 // Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: 'AIzaSyCy_9bQkohmcHxx-FJ-sF2Nav1oRPnRUkY',
@@ -14,9 +13,10 @@ const firebaseConfig = {
   appId: '1:513259901946:web:7f4f930a3f5c3c6ab70a43',
   measurementId: 'G-H7KG3JSLE7',
 };
-
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 export const dataBase = getFirestore(app);
 // const analytics = getAnalytics(app);
 export const auth = getAuth(app);
+//probando
+export const provider = new GoogleAuthProvider(app);
