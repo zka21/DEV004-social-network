@@ -1,41 +1,32 @@
 // Este es el punto de entrada de tu aplicacion
 
-import { collection, getDocs } from 'firebase/firestore';
 import { welcome } from './components/welcome.js';
 import { register } from './components/register.js';
 import { login } from './components/login.js';
 import { posts } from './components/posts.js';
+import { addRoutes, onNavigate } from './router/index.js';
+import { authStateChangedEvent } from './lib/firebaseFunctions';
 
-import { dataBase } from './firebase/firebaseConfig.js';
-
-const rootDiv = document.getElementById('root');
-
-const routes = {
+// inicializamos el router
+addRoutes({
   '/': welcome,
-  '/login': login,
   '/register': register,
+  '/login': login,
   '/posts': posts,
+});
+// Lógica de la aplicacion
+window.onload = () => {
+  onNavigate(window.location.pathname);
 };
 
-export const App = () => {
-  const obtainData = async () => {
-    const datos = await getDocs(collection(dataBase, 'usuarios'));
-    console.log('estos son mis datos', datos.docs[0].data());
-  };
-  obtainData();
+window.onpopstate = () => {
+  onNavigate(window.location.pathname);
 };
 
-export const onNavigate = (pathname) => {
-  window.history.pushState(
-    {},
-    pathname,
-    window.location.origin + pathname,
-  );
-  while (rootDiv.firstChild) {
-    rootDiv.removeChild(rootDiv.firstChild);
+authStateChangedEvent((user) => {
+  if (user) {
+    onNavigate('/posts');
+  } else {
+    onNavigate('/');
   }
-  rootDiv.appendChild(routes[pathname](onNavigate));
-};
-
-const component = routes[window.location.pathname];
-rootDiv.appendChild(component(onNavigate));
+});

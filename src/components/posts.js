@@ -1,6 +1,8 @@
+import { signOutUser } from '../lib/firebaseFunctions';
+
 export const posts = (onNavigate) => {
-    const root = document.getElementById('root');
-    root.innerHTML = `
+  const root = document.getElementById('root');
+  root.innerHTML = `
     <section id= "containerMain">
         <div id="partOfwelcome">
             <img src="./Imagenes/cactusFile.png"><br>
@@ -38,7 +40,7 @@ export const posts = (onNavigate) => {
     </section>
 
     <footer></footer>
-    `
-    const logOut = document.getElementById('logOut');
-    logOut.addEventListener('click', () => onNavigate('/'));
-}
+    `;
+  const logOut = document.getElementById('logOut');
+  logOut.addEventListener('click', () => signOutUser());
+};
