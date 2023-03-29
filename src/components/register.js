@@ -1,6 +1,7 @@
 import { createUserWithPassword } from '../lib/firebaseFunctions.js';
+import { onNavigate } from '../router/index.js';
 
-export const register = (onNavigate) => {
+export const register = () => {
   const root = document.getElementById('root');
   root.innerHTML = `
     <section id="sectionOfContentRegister" class="button-container"> 

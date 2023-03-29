@@ -1,6 +1,7 @@
 import { loginGoogle } from '../lib/firebaseFunctions.js';
+import { onNavigate } from '../router/index.js';
 
-export const welcome = (onNavigate) => {
+export const welcome = () => {
   const root = document.getElementById('root');
   // root.style.backgroundColor = '#E9ECE3';
   // se envuelven los botones en un contenedor con la clase "button-container"
@@ -22,7 +23,7 @@ export const welcome = (onNavigate) => {
   buttonGoogle.addEventListener('click', () => {
     // new GoogleAuthProvider(auth, provider);
     loginGoogle().then((resp) => {
-      onNavigate('/posts');
+      // onNavigate('/posts');
       console.log('Ok');
     }).catch((error) => {
       // alert('Verifica)
