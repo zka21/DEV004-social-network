@@ -1,6 +1,7 @@
 import { signInWithEmail } from '../lib/firebaseFunctions.js';
+import { onNavigate } from '../router/index.js';
 
-export const login = (onNavigate) => {
+export const login = () => {
   const root = document.getElementById('root');
   root.innerHTML = `
   <section id="sectionOfLogin"> 
