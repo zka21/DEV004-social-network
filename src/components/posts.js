@@ -1,6 +1,6 @@
 import { signOutUser } from '../lib/firebaseFunctions';
 
-export const posts = (onNavigate) => {
+export const posts = () => {
   const root = document.getElementById('root');
   root.innerHTML = `
     <section id= "containerMain">
