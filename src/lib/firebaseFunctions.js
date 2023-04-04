@@ -5,12 +5,15 @@ import {
   signInWithPopup,
   GoogleAuthProvider,
   onAuthStateChanged,
-  signOut
+  signOut,
 } from 'firebase/auth';
 import { auth, provider } from '../firebase/firebaseConfig.js';
 
-export const createUserWithPassword = (email, password) => createUserWithEmailAndPassword(auth, email, password);
-export const signInWithEmail = (email, password) => signInWithEmailAndPassword(auth, email, password);
+export const createUserWithPassword = (email, password) => {
+  createUserWithEmailAndPassword(auth, email, password)}
+
+export const signInWithEmail = (email, password) => {
+  return signInWithEmailAndPassword(auth, email, password)}
 
 export const loginGoogle = () => signInWithPopup(auth, provider)
   .then((result) => {
@@ -32,3 +35,12 @@ export function authStateChangedEvent(cb) {
 }
 
 export const signOutUser = () => signOut(auth);
+
+export {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signInWithPopup,
+  GoogleAuthProvider,
+  onAuthStateChanged,
+  signOut,
+};
