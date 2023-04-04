@@ -10,7 +10,7 @@
   /* margin-bottom: 0px; */
 }
 body {
-  background-image: url("https://i.pinimg.com/564x/11/15/6d/11156d10e37e66bc56f6011fc8089743.jpg");
+  background-image: url(Imagenes/fondonuevo.png);
   background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -61,25 +61,38 @@ body {
     /* margin: 30px 0; */
   }
  .googleButton {
-   background: url(Imagenes/icon-google.png) no-repeat ;
-   background-size: 35px;
-   background-position:right;
-   background-color: #ffffff;
-    color: #A39F9F;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 12px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: bolder;
-    margin: 0px;
-    width:  303px;
-    height: 40px;
+  background-color: #ffffff;
+  color: #A39F9F;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 12px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bolder;
+  margin: 0px;
+  width: 303px;
+  height: 40px;
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
  }
+ /* con esto separo el boton con la imagen del icono de google para que este a la derecha */
+ .googleButton::before {
+  content: ""; 
+  background-image: url(Imagenes/icon-google.png);
+  background-repeat: no-repeat;
+  background-position: right center; 
+  background-size: 30px;
+  width: 35px;
+  height: 35px;
+  margin-right: 10px; 
+  
+  
+  }
   /* ...... */
   #sectionOfContentRegister{
-    background-image: url("https://i.pinimg.com/564x/11/15/6d/11156d10e37e66bc56f6011fc8089743.jpg") ;
+    background-image: url(Imagenes/fondonuevo.png) ;
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -107,6 +120,7 @@ body {
     padding: 10px 20px;
     border: none;
     border-radius: 8px;
+    border: 1px solid #8A8989;
     width: 150px;
   }
   #emailInput{
