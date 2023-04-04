@@ -22,12 +22,10 @@ export const welcome = () => {
   buttonLogin.addEventListener('click', () => onNavigate('/login'));
   buttonGoogle.addEventListener('click', () => {
     // new GoogleAuthProvider(auth, provider);
-    loginGoogle().then((resp) => {
+    loginGoogle().then(() => {
       // onNavigate('/posts');
-      console.log('Ok');
-    }).catch((error) => {
+    }).catch(() => {
       // alert('Verifica)
-      console.log('error');
     });
   });
 };
