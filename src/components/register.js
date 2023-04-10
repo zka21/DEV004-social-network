@@ -1,4 +1,3 @@
-import { saveUsers } from '../firebase/firebaseConfig.js';
 import { createUserWithPassword} from '../lib/firebaseFunctions.js';
 import { onNavigate } from '../router/index.js';
 
