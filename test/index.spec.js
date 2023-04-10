@@ -2,9 +2,8 @@
 import { login } from '../src/components/login.js';
 // import { signInWithEmail } from '../src/lib/firebaseFunctions.js'
 
-jest.mock('../src/lib/firebaseFunctions.js', ()=> (
-  {
-   signInWithEmail: jest.fn(()=> {
+jest.mock('../src/lib/firebaseFunctions.js', () => (
+  {signInWithEmail: jest.fn(() => {
     return Promise.resolve({ email:'user@gmail.com'})
    })
  }
