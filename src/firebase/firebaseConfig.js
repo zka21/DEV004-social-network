@@ -1,7 +1,7 @@
 import { initializeApp } from 'firebase/app';
-// import { getAnalytics } from 'firebase/analytics';
-import { getFirestore } from 'firebase/firestore';
+import { getFirestore, collection, getDocs, doc } from 'firebase/firestore';
 import { getAuth, GoogleAuthProvider } from 'firebase/auth';
+
 // Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: 'AIzaSyCy_9bQkohmcHxx-FJ-sF2Nav1oRPnRUkY',
@@ -15,8 +15,43 @@ const firebaseConfig = {
 };
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-export const dataBase = getFirestore(app);
-// const analytics = getAnalytics(app);
+export const db = getFirestore(app);
 export const auth = getAuth(app);
-// probando
 export const provider = new GoogleAuthProvider(app);
+
+// Referenciar collection
+
+/*const docRef = doc(db, 'usuarios');
+const docSnap = await getDoc(docRef);
+
+  if (docSnap.exists()) {
+    console.log("Document data:", docSnap.data());
+  } else {
+    // doc.data() will be undefined in this case
+    console.log("No such document!");
+  }*/
+
+/*const logUsers = async () => {
+  const refColUsers = db.collection('usuarios');
+  const allUsers = await refColUsers.get();
+  for(const doc of allUsers.docs){
+    console.log('obtiene usuario', doc.id, '=>', doc.data());
+  }
+}*/
+// const refColUser = collection(db, 'usuarios')
+
+// Entra a los documentos de la colección
+// const docsOfUsers =  await getDocs(collection(db, "usuarios"))
+//   .then((snapshot) => {
+//     console.log(docsOfUsers)
+//   });
+
+
+
+  /*const logCities = async () => {
+    let citiesRef = db.collection('cities');
+    let allCities = await citiesRef.get();
+    for(const doc of allCities.docs){
+      console.log(doc.id, '=>', doc.data());
+    }
+  }*/
