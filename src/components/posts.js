@@ -1,23 +1,30 @@
 import { signOutUser } from '../lib/firebaseFunctions';
 
+// // para cuando se caegue el dom, y aqui dentro traeremos datos de firestore
+// window.addEventListener('DOMContentLoaded', () => {
+
+// });
+
 export const posts = () => {
   const root = document.getElementById('root');
   root.innerHTML = `
     <section id= "containerMain">
+
         <div id="partOfwelcome">
-            <img src="./Imagenes/cactusFile.png"><br>
-            
+
+            <img src="../Imagenes/cactusFile.png"><br>
             <h2>Bienvenido a Cáo</h2>
             <p>Cuentanos algo de las plantas</p>
+
         </div>
 
         <div id = "newPost">
-        <div class="postContainer">
+
+            <div class="postContainer">
             <textarea id="description" rows="6" cols="50" placeholder="cuentanos algo de las plantas"> </textarea> <br>
-            
-            
-        </div>
-        <button>Publicar</button>
+            </div>
+            <button id="publishButton" class="buttonsOfPosts">Publicar</button>
+
         </div>
 
         <line>____________________________________</line> <br><br>
@@ -35,12 +42,20 @@ export const posts = () => {
             </div>
 
         </div>
-        <button>Me gusta</button>
-        <button id="logOut">Login Out</button>
+
+        <button class="buttonsOfPosts">Me gusta</button>
+        <button class="buttonsOfPosts" id="logOut">Login Out</button>
+        
     </section>
 
     <footer></footer>
     `;
   const logOut = document.getElementById('logOut');
   logOut.addEventListener('click', () => signOutUser());
+
+  const publishButton = document.getElementById('publishButton');
+  publishButton.addEventListener('click', () => {
+    console.log('hola estoy intentando enviar algo');
+  });
+  return root;
 };

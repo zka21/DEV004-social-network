@@ -1,7 +1,7 @@
 import { initializeApp } from 'firebase/app';
-// import { getAnalytics } from 'firebase/analytics';
-import { getFirestore } from 'firebase/firestore';
+import { getFirestore, collection, getDocs, addDoc } from 'firebase/firestore';
 import { getAuth, GoogleAuthProvider } from 'firebase/auth';
+
 // Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: 'AIzaSyCy_9bQkohmcHxx-FJ-sF2Nav1oRPnRUkY',
@@ -15,8 +15,9 @@ const firebaseConfig = {
 };
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-export const dataBase = getFirestore(app);
-// const analytics = getAnalytics(app);
+export const db = getFirestore(app);
 export const auth = getAuth(app);
-// probando
 export const provider = new GoogleAuthProvider(app);
+
+export const saveUsers = (nombre, apellido) => addDoc(collection(db, 'users'), { nombre, apellido });
+export const getUsers = () => getDocs(collection, 'users');

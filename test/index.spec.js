@@ -1,14 +1,14 @@
-// importamos la funcion que vamos a testear
-import { login } from '../src/components/login.js';
-// import { signInWithEmail } from '../src/lib/firebaseFunctions.js'
+  // importamos la funcion que vamos a testear
+  import { login } from '../src/components/login.js';
+  // import { signInWithEmail } from '../src/lib/firebaseFunctions.js'
 
-jest.mock('../src/lib/firebaseFunctions.js', ()=> (
+  jest.mock('../src/lib/firebaseFunctions.js', ()=> (
   {
    signInWithEmail: jest.fn(()=> {
     return Promise.resolve({ email:'user@gmail.com'})
    })
- }
- ))
+  }
+  ))
 
 document.body.innerHTML = "<div id='root'></div>";
 
