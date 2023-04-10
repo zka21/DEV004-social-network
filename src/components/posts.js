@@ -1,10 +1,29 @@
-import { signOutUser, listarPosts, coleccPublic } from '../lib/firebaseFunctions';
 import { addDoc } from 'firebase/firestore';
+import { signOutUser, listarPosts, coleccPublic } from '../lib/firebaseFunctions';
+import { auth } from '../firebase/firebaseConfig';
 
 // para cuando se caegue el dom, y aqui dentro traeremos datos de firestore
 // window.addEventListener('DOMContentLoaded', () => {
 //   console.log('cargando para traer datos');
 // });
+
+const userData = () => {
+  const user = auth.currentUser;
+  console.log('usuario', user);
+  if (user !== null) {
+    // The user object has basic properties such as display name, email, etc.
+    const displayName = user.displayName;
+    const email = user.email;
+    const photoURL = user.photoURL;
+    const emailVerified = user.emailVerified;
+    // The user's ID, unique to the Firebase project. Do NOT use
+    // this value to authenticate with your backend server, if
+    // you have one. Use User.getToken() instead.
+    const uid = user.uid;
+  }
+  return user;
+};
+console.log('usuario funcion', userData());
 
 export const posts = () => {
   const root = document.getElementById('root');
@@ -55,14 +74,16 @@ export const posts = () => {
   const logOut = document.getElementById('logOut');
   logOut.addEventListener('click', () => signOutUser());
 
-
   const publishButton = document.querySelector('#newPost');
   publishButton.addEventListener('submit', (e) => {
     e.preventDefault();
-    console.log('hola estoy intentando enviar algo');
+    const infoUser = userData();
+    console.log('prueba', infoUser);
+   // console.log('hola estoy intentando enviar algo');
     const guardarPost = addDoc(coleccPublic, {
-      //autor: ,
+      autor: infoUser.email,
       descripcion: publishButton.description.value,
+      creacion: new Date(),
     })
       .then(() => {
         publishButton.reset();
