@@ -10,7 +10,8 @@ import {
 import { auth, provider } from '../firebase/firebaseConfig.js';
 
 export const createUserWithPassword = (email, password) => {
-  createUserWithEmailAndPassword(auth, email, password)}
+  return createUserWithEmailAndPassword(auth, email, password);
+};
 
 export const signInWithEmail = (email, password) => {
   return signInWithEmailAndPassword(auth, email, password)}

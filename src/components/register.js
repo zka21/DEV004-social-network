@@ -1,5 +1,9 @@
-import { createUserWithPassword } from '../lib/firebaseFunctions.js';
+import { saveUsers } from '../firebase/firebaseConfig.js';
+import { createUserWithPassword} from '../lib/firebaseFunctions.js';
 import { onNavigate } from '../router/index.js';
+
+// const nameInput = document.getElementById('nameInput');
+// const lastnameInput = document.getElementById('lastnameInput');
 
 export const register = () => {
   const root = document.getElementById('root');
@@ -40,7 +44,11 @@ export const register = () => {
   const crearCuenta = document.getElementById('buttonCrearCuenta');
   crearCuenta.addEventListener('click', async () => {
     // const displayName = nameInput.value + lastnameInput.value;
-
+  // para cuando se caegue el dom, y aqui dentro traeremos datos de firestore
+    window.addEventListener('DOMContentLoaded', () => {
+      saveUsers(nameInput.value, lastnameInput.value);
+      console.log('aqui quiero poder guardar nombre y apellido' + saveUsers())
+    });
     try {
       const userCreated = await createUserWithPassword(emailInput.value, passwordInput.value);
       const user = userCreated.user;

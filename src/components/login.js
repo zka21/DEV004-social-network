@@ -1,5 +1,6 @@
 import { signInWithEmail } from '../lib/firebaseFunctions.js';
 import { onNavigate } from '../router/index.js';
+
 export const login = () => {
   const root = document.getElementById('root');
   root.innerHTML = `
@@ -31,7 +32,6 @@ export const login = () => {
 
   buttonLogin.addEventListener('click', (e) => {
     e.preventDefault();
-    debugger
     const statusDiv = document.getElementById('statusText');
     const password = loginPassword.value;
     const email = loginEmail.value;

@@ -23,10 +23,10 @@ window.onpopstate = () => {
   onNavigate(window.location.pathname);
 };
 
-  authStateChangedEvent((user) => {
-    if (user) {
-      onNavigate('/posts');
-    } else {
-      onNavigate('/');
-    }
-  });
+authStateChangedEvent((user) => {
+  if (user) {
+    onNavigate('/posts');
+  } else {
+    onNavigate('/');
+  }
+});
