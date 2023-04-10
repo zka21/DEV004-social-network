@@ -1,8 +1,8 @@
 import { signOutUser } from '../lib/firebaseFunctions';
 
-// // para cuando se caegue el dom, y aqui dentro traeremos datos de firestore
+// para cuando se caegue el dom, y aqui dentro traeremos datos de firestore
 // window.addEventListener('DOMContentLoaded', () => {
-
+//   console.log('cargando para traer datos');
 // });
 
 export const posts = () => {
