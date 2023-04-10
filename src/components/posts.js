@@ -1,4 +1,5 @@
-import { signOutUser, listarPosts } from '../lib/firebaseFunctions';
+import { signOutUser, listarPosts, coleccPublic } from '../lib/firebaseFunctions';
+import { addDoc } from 'firebase/firestore';
 
 // para cuando se caegue el dom, y aqui dentro traeremos datos de firestore
 // window.addEventListener('DOMContentLoaded', () => {
@@ -18,15 +19,15 @@ export const posts = () => {
 
         </div>
 
-        <div id = "newPost">
+        <form id = "newPost">
 
             <div class="postContainer">
-            
+
             <textarea id="description" rows="6" cols="50" placeholder="cuentanos algo de las plantas"> </textarea> <br>
             </div>
             <button id="publishButton" class="buttonsOfPosts">Publicar</button>
 
-        </div>
+        </form>
 
         <line>____________________________________</line> <br><br>
 
@@ -54,10 +55,18 @@ export const posts = () => {
   const logOut = document.getElementById('logOut');
   logOut.addEventListener('click', () => signOutUser());
 
-  const publishButton = document.getElementById('publishButton');
-  publishButton.addEventListener('click', () => {
-    listarPosts();
+
+  const publishButton = document.querySelector('#newPost');
+  publishButton.addEventListener('submit', (e) => {
+    e.preventDefault();
     console.log('hola estoy intentando enviar algo');
+    const guardarPost = addDoc(coleccPublic, {
+      //autor: ,
+      descripcion: publishButton.description.value,
+    })
+      .then(() => {
+        publishButton.reset();
+      });
   });
   return root;
 };
