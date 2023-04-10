@@ -1,4 +1,4 @@
-import { signOutUser } from '../lib/firebaseFunctions';
+import { signOutUser, listarPosts } from '../lib/firebaseFunctions';
 
 // para cuando se caegue el dom, y aqui dentro traeremos datos de firestore
 // window.addEventListener('DOMContentLoaded', () => {
@@ -21,6 +21,7 @@ export const posts = () => {
         <div id = "newPost">
 
             <div class="postContainer">
+            
             <textarea id="description" rows="6" cols="50" placeholder="cuentanos algo de las plantas"> </textarea> <br>
             </div>
             <button id="publishButton" class="buttonsOfPosts">Publicar</button>
@@ -55,6 +56,7 @@ export const posts = () => {
 
   const publishButton = document.getElementById('publishButton');
   publishButton.addEventListener('click', () => {
+    listarPosts();
     console.log('hola estoy intentando enviar algo');
   });
   return root;
