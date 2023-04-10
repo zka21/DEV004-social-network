@@ -38,7 +38,7 @@ export function authStateChangedEvent(cb) {
 
 export const signOutUser = () => signOut(auth);
 
-//Colección publicaciones
+// Colección publicaciones
 
 export const coleccPublic = collection(db, 'publicaciones');
 

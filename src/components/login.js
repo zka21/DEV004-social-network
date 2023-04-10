@@ -37,15 +37,13 @@ export const login = () => {
     const email = loginEmail.value;
     const signIn = signInWithEmail(email, password)
       .then((userCredential) => {
+        onNavigate('/posts');
         const user = userCredential.user;
         // console.log(user);
         statusDiv.classList.remove('statusTextW');
         statusDiv.classList.add('statusTextR');
         statusDiv.style.color = 'green';
         statusDiv.innerHTML = 'Login succesful';
-        setTimeout(() => {
-          onNavigate('/posts');
-        }, 1500);
       })
       .catch((error) => {
         const errorCode = error.code;
