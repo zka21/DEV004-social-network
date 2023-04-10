@@ -7,7 +7,7 @@ import {
   onAuthStateChanged,
   signOut,
 } from 'firebase/auth';
-import { collection, getDocs, doc } from 'firebase/firestore';
+import { collection, getDocs, addDoc } from 'firebase/firestore';
 import { auth, provider, db } from '../firebase/firebaseConfig.js';
 
 export const createUserWithPassword = (email, password) => {
@@ -38,8 +38,12 @@ export function authStateChangedEvent(cb) {
 
 export const signOutUser = () => signOut(auth);
 
+//Colección publicaciones
+
+export const coleccPublic = collection(db, 'publicaciones');
+
 export const listarPosts = async () => {
-  const querySnapshot = await getDocs(collection(db, 'publicaciones'));
+  const querySnapshot = await getDocs(coleccPublic);
   querySnapshot.forEach((document) => {
     // doc.data() is never undefined for query doc snapshots
     console.log(document.id, ' => ', document.data());

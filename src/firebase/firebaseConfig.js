@@ -21,15 +21,6 @@ export const provider = new GoogleAuthProvider(app);
 
 // Referenciar collection
 
-/*const docRef = doc(db, 'usuarios');
-const docSnap = await getDoc(docRef);
-
-  if (docSnap.exists()) {
-    console.log("Document data:", docSnap.data());
-  } else {
-    // doc.data() will be undefined in this case
-    console.log("No such document!");
-  }*/
 
 /*const logUsers = async () => {
   const refColUsers = db.collection('usuarios');

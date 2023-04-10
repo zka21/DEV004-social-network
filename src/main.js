@@ -30,3 +30,4 @@ authStateChangedEvent((user) => {
     onNavigate('/');
   }
 });
+
