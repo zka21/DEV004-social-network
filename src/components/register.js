@@ -1,4 +1,4 @@
-import { createUserWithPassword} from '../lib/firebaseFunctions.js';
+import { createUserWithPassword } from '../lib/firebaseFunctions.js';
 import { onNavigate } from '../router/index.js';
 
 // const nameInput = document.getElementById('nameInput');

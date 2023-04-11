@@ -7,7 +7,7 @@ import {
   onAuthStateChanged,
   signOut,
 } from 'firebase/auth';
-import { collection, getDocs, addDoc } from 'firebase/firestore';
+import { collection, getDocs, onSnapshot, query } from 'firebase/firestore';
 import { auth, provider, db } from '../firebase/firebaseConfig.js';
 
 export const createUserWithPassword = (email, password) => {
@@ -41,14 +41,25 @@ export const signOutUser = () => signOut(auth);
 // Colección publicaciones
 
 export const coleccPublic = collection(db, 'publicaciones');
+export const q = query(collection(db, 'publicaciones'));
 
 export const listarPosts = async () => {
-  const querySnapshot = await getDocs(coleccPublic);
-  querySnapshot.forEach((document) => {
-    // doc.data() is never undefined for query doc snapshots
-    console.log(document.id, ' => ', document.data());
+  // const querySnapshot = await getDocs(coleccPublic);
+  // querySnapshot.forEach((document) => {
+  //   // doc.data() is never undefined for query doc snapshots
+  //   console.log(document.id, ' => ', document.data());
+  // });
+  onSnapshot(q, (querySnapshot) => {
+    const publicaciones = [];
+    querySnapshot.forEach((doc) => {
+      publicaciones.push(doc.data());
+    });
+    //return publicaciones;
+    console.log('Current cities in CA: ', publicaciones);
   });
 };
+
+
 
 export {
   createUserWithEmailAndPassword,
