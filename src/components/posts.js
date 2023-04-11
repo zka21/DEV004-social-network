@@ -9,7 +9,6 @@ import { auth } from '../firebase/firebaseConfig';
 
 const userData = () => {
   const user = auth.currentUser;
-  console.log('usuario', user);
   if (user !== null) {
     // The user object has basic properties such as display name, email, etc.
     const displayName = user.displayName;
@@ -23,7 +22,6 @@ const userData = () => {
   }
   return user;
 };
-console.log('usuario funcion', userData());
 
 export const posts = () => {
   const root = document.getElementById('root');
@@ -54,7 +52,9 @@ export const posts = () => {
 
             <div id="informationOfUser">
                 <img src="./Imagenes/usersinfondo.png">
-                <h3>Name User</h3>
+                <h3>Name User</h3><br>
+                <h5>Timestamp</h5>
+                <p></p>
             </div>
             
             <div id="buttonsOfConfiguration">
@@ -65,7 +65,7 @@ export const posts = () => {
         </div>
 
         <button class="buttonsOfPosts">Me gusta</button>
-        <button class="buttonsOfPosts" id="logOut">Login Out</button>
+        <button class="buttonsOfPosts" id="logOut">Log Out</button>
         
     </section>
 
@@ -78,8 +78,7 @@ export const posts = () => {
   publishButton.addEventListener('submit', (e) => {
     e.preventDefault();
     const infoUser = userData();
-    console.log('prueba', infoUser);
-   // console.log('hola estoy intentando enviar algo');
+    // console.log('hola estoy intentando enviar algo');
     const guardarPost = addDoc(coleccPublic, {
       autor: infoUser.email,
       descripcion: publishButton.description.value,
@@ -91,3 +90,6 @@ export const posts = () => {
   });
   return root;
 };
+
+console.log(listarPosts());
+
