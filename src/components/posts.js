@@ -2,10 +2,9 @@ import { addDoc } from 'firebase/firestore';
 import { signOutUser, listarPosts, coleccPublic } from '../lib/firebaseFunctions';
 import { auth } from '../firebase/firebaseConfig';
 
-// para cuando se caegue el dom, y aqui dentro traeremos datos de firestore
-// window.addEventListener('DOMContentLoaded', () => {
-//   console.log('cargando para traer datos');
-// });
+// let autor = document.getElementById('autor');
+// let time = document.getElementById('time');
+// let descriptionOfPublication = document.getElementById('descriptionOfPublication');
 
 const userData = () => {
   const user = auth.currentUser;
@@ -52,9 +51,9 @@ export const posts = () => {
 
             <div id="informationOfUser">
                 <img src="./Imagenes/usersinfondo.png">
-                <h3>Name User</h3><br>
-                <h5>Timestamp</h5>
-                <p></p>
+                <h3 id="autor">Name User</h3><br>
+                <h5 id="time">Timestamp</h5>
+                <p id="descriptionOfPublication"></p>
             </div>
             
             <div id="buttonsOfConfiguration">
@@ -91,5 +90,13 @@ export const posts = () => {
   return root;
 };
 
-console.log(listarPosts());
+// const historialDePublicaciones = (p) => {
+//   autor.innerHTML = p.autor;
+//   time.innerHTML = p.creacion;
+//   descriptionOfPublication = p.descripcion;
+// };
+// publicaciones.forEach((p) => {
+//   historialDePublicaciones(p);
+// });
 
+console.log(listarPosts());
