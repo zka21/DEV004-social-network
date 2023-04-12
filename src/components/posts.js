@@ -1,5 +1,5 @@
 import { addDoc, onSnapshot } from 'firebase/firestore';
-import { signOutUser, coleccPublic, q } from '../lib/firebaseFunctions';
+import { signOutUser, coleccPublic, qOrdered } from '../lib/firebaseFunctions';
 import { auth } from '../firebase/firebaseConfig';
 
 const userData = () => {
@@ -66,11 +66,10 @@ export const posts = () => {
     <footer></footer>
     `;
 
-  onSnapshot(q, (querySnapshot) => {
+  onSnapshot(qOrdered, (querySnapshot) => {
     const post = document.getElementById('post');
     post.innerHTML = '';
     querySnapshot.forEach((doc) => {
-      //console.log('mi data', doc.data());
       post.innerHTML += `
       <div id="historyOfPosts">
 
@@ -99,7 +98,7 @@ export const posts = () => {
     e.preventDefault();
 
     const infoUser = userData();
-    const guardarPost = addDoc(coleccPublic, {
+    addDoc(coleccPublic, {
       autor: infoUser.email,
       descripcion: publishButton.description.value,
       creacion: today.toLocaleString('en-US'),
@@ -110,5 +109,3 @@ export const posts = () => {
   });
   return root;
 };
-
-// console.log(listarPosts());
