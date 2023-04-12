@@ -68,8 +68,9 @@ export const posts = () => {
 
   onSnapshot(q, (querySnapshot) => {
     const post = document.getElementById('post');
+    post.innerHTML = '';
     querySnapshot.forEach((doc) => {
-      console.log(doc.data());
+      //console.log('mi data', doc.data());
       post.innerHTML += `
       <div id="historyOfPosts">
 
@@ -98,11 +99,10 @@ export const posts = () => {
     e.preventDefault();
 
     const infoUser = userData();
-    // console.log('hola estoy intentando enviar algo');
     const guardarPost = addDoc(coleccPublic, {
       autor: infoUser.email,
       descripcion: publishButton.description.value,
-      creacion: today.toLocaleDateString('en-US'),
+      creacion: today.toLocaleString('en-US'),
     })
       .then(() => {
         publishButton.reset();
