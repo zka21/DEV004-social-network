@@ -46,7 +46,6 @@ export const signOutUser = () => {
 
 export const coleccPublic = collection(db, 'publicaciones');
 export const qOrdered = query(coleccPublic, orderBy('creacion', 'desc'));
-
 export {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
