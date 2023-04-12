@@ -44,16 +44,24 @@ export const coleccPublic = collection(db, 'publicaciones');
 export const q = query(collection(db, 'publicaciones'));
 let publicaciones = [];
 
-export const listarPosts = async () => {
-  onSnapshot(q, (querySnapshot) => {
-    publicaciones = [];
-    querySnapshot.forEach((doc) => {
-      publicaciones.push(doc.data());
-    });
-    return publicaciones;
-    console.log('Current cities in CA: ', publicaciones);
-  });
-};
+// export const listarPosts = () => {
+//   // const querySnapshot = await getDocs(coleccPublic);
+//   // querySnapshot.forEach((document) => {
+//   //   // doc.data() is never undefined for query doc snapshots
+//   //   console.log(document.id, ' => ', document.data());
+//   // });
+//   publicaciones = [];
+//    onSnapshot(q, (querySnapshot) => {
+    
+//     querySnapshot.forEach((doc) => {
+//       publicaciones.push(doc.data());
+//     });
+    
+//     return publicaciones;
+//   });
+//   console.log('Current cities in CA: ', publicaciones);
+
+// };
 
 export {
   createUserWithEmailAndPassword,

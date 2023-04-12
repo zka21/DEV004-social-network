@@ -1,10 +1,6 @@
-import { addDoc } from 'firebase/firestore';
-import { signOutUser, listarPosts, coleccPublic } from '../lib/firebaseFunctions';
+import { addDoc, onSnapshot } from 'firebase/firestore';
+import { signOutUser, coleccPublic, q } from '../lib/firebaseFunctions';
 import { auth } from '../firebase/firebaseConfig';
-
-// let autor = document.getElementById('autor');
-// let time = document.getElementById('time');
-// let descriptionOfPublication = document.getElementById('descriptionOfPublication');
 
 const userData = () => {
   const user = auth.currentUser;
@@ -35,13 +31,12 @@ export const posts = () => {
 
         </div>
 
-        <form id = "newPost">
+        <form id="newPost">
 
             <div class="postContainer">
-
             <textarea id="description" rows="6" cols="50" placeholder="cuentanos algo de las plantas"> </textarea> <br>
             </div>
-            <button id="publishButton" class="buttonsOfPosts">Publicar</button>
+            <button id="publishButton" class="buttonsOfPosts" >Publicar</button>
 
         </form>
 
@@ -51,9 +46,9 @@ export const posts = () => {
 
             <div id="informationOfUser">
                 <img src="./Imagenes/usersinfondo.png">
-                <h3 id="autor">Name User</h3><br>
-                <h5 id="time">Timestamp</h5>
-                <p id="descriptionOfPublication"></p>
+                <h3>Name User</h3><br>
+                <h5>Time</h5>
+                <p></p>
             </div>
             
             <div id="buttonsOfConfiguration">
@@ -70,18 +65,42 @@ export const posts = () => {
 
     <footer></footer>
     `;
+
+  onSnapshot(q, (querySnapshot) => {
+    querySnapshot.forEach((doc) => {
+      console.log(doc.data());
+
+      root.innerHTML += `<div id="historyOfPosts">
+
+  <div id="informationOfUser">
+      <img src="./Imagenes/usersinfondo.png">
+      <h3>${doc.data().autor}</h3><br>
+      <h5>${doc.data().creacion}</h5>
+      <p>${doc.data().descripcion}</p>
+  </div>
+  
+  <div id="buttonsOfConfiguration">
+      <button class="buttonsOfConfiguration">Edit</button>
+      <button class="buttonsOfConfiguration">Delete</button>
+  </div>
+
+</div>`;
+    });
+  });
   const logOut = document.getElementById('logOut');
   logOut.addEventListener('click', () => signOutUser());
+  const today = new Date();
 
-  const publishButton = document.querySelector('#newPost');
+  const publishButton = root.querySelector('#newPost');
   publishButton.addEventListener('submit', (e) => {
     e.preventDefault();
+
     const infoUser = userData();
     // console.log('hola estoy intentando enviar algo');
     const guardarPost = addDoc(coleccPublic, {
       autor: infoUser.email,
       descripcion: publishButton.description.value,
-      creacion: new Date(),
+      creacion: today.toLocaleDateString('en-US'),
     })
       .then(() => {
         publishButton.reset();
@@ -99,4 +118,4 @@ export const posts = () => {
 //   historialDePublicaciones(p);
 // });
 
-console.log(listarPosts());
+// console.log(listarPosts());
