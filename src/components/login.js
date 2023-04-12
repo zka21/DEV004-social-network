@@ -63,3 +63,6 @@ export const login = () => {
   });
   return root;
 };
+const post = document.getElementById('post');
+post.innerHTML = `
+ `;

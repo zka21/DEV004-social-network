@@ -67,24 +67,26 @@ export const posts = () => {
     `;
 
   onSnapshot(q, (querySnapshot) => {
+    const post = document.getElementById('post');
     querySnapshot.forEach((doc) => {
       console.log(doc.data());
+      post.innerHTML += `
+      <div id="historyOfPosts">
 
-      root.innerHTML += `<div id="historyOfPosts">
+        <div id="informationOfUser">
+            <img src="./Imagenes/usersinfondo.png">
+            <h3>${doc.data().autor}</h3><br>
+            <h5>${doc.data().creacion}</h5>
+            <p>${doc.data().descripcion}</p>
+        </div>
+        
+        <div id="buttonsOfConfiguration">
+            <button class="buttonsOfConfiguration">Edit</button>
+            <button class="buttonsOfConfiguration">Delete</button>
+        </div>
 
-  <div id="informationOfUser">
-      <img src="./Imagenes/usersinfondo.png">
-      <h3>${doc.data().autor}</h3><br>
-      <h5>${doc.data().creacion}</h5>
-      <p>${doc.data().descripcion}</p>
-  </div>
-  
-  <div id="buttonsOfConfiguration">
-      <button class="buttonsOfConfiguration">Edit</button>
-      <button class="buttonsOfConfiguration">Delete</button>
-  </div>
-
-</div>`;
+      </div>
+`;
     });
   });
   const logOut = document.getElementById('logOut');

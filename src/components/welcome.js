@@ -29,3 +29,7 @@ export const welcome = () => {
     });
   });
 };
+
+const post = document.getElementById('post');
+post.innerHTML = `
+ `;
