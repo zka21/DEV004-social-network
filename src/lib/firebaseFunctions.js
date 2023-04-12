@@ -7,7 +7,7 @@ import {
   onAuthStateChanged,
   signOut,
 } from 'firebase/auth';
-import { collection, getDocs, onSnapshot, query } from 'firebase/firestore';
+import { collection, getDocs, onSnapshot, query, orderBy } from 'firebase/firestore';
 import { auth, provider, db } from '../firebase/firebaseConfig.js';
 
 export const createUserWithPassword = (email, password) => {
