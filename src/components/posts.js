@@ -1,5 +1,5 @@
 import { addDoc, onSnapshot } from 'firebase/firestore';
-import { signOutUser, coleccPublic, q } from '../lib/firebaseFunctions';
+import { signOutUser, coleccPublic, qOrdered } from '../lib/firebaseFunctions';
 import { auth } from '../firebase/firebaseConfig';
 
 const userData = () => {
@@ -10,10 +10,6 @@ const userData = () => {
     const email = user.email;
     const photoURL = user.photoURL;
     const emailVerified = user.emailVerified;
-    // The user's ID, unique to the Firebase project. Do NOT use
-    // this value to authenticate with your backend server, if
-    // you have one. Use User.getToken() instead.
-    const uid = user.uid;
   }
   return user;
 };
@@ -66,11 +62,10 @@ export const posts = () => {
     <footer></footer>
     `;
 
-  onSnapshot(q, (querySnapshot) => {
+  onSnapshot(qOrdered, (querySnapshot) => {
     const post = document.getElementById('post');
     post.innerHTML = '';
     querySnapshot.forEach((doc) => {
-      //console.log('mi data', doc.data());
       post.innerHTML += `
       <div id="historyOfPosts">
 
@@ -99,10 +94,10 @@ export const posts = () => {
     e.preventDefault();
 
     const infoUser = userData();
-    const guardarPost = addDoc(coleccPublic, {
+    addDoc(coleccPublic, {
       autor: infoUser.email,
       descripcion: publishButton.description.value,
-      creacion: today.toLocaleString('en-US'),
+      creacion: today.toLocaleString('en-GB'),
     })
       .then(() => {
         publishButton.reset();
@@ -110,5 +105,3 @@ export const posts = () => {
   });
   return root;
 };
-
-// console.log(listarPosts());
