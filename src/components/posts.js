@@ -50,12 +50,11 @@ export const posts = () => {
     post.innerHTML = '';
     querySnapshot.forEach((doc) => {
       post.innerHTML += `
-      <div id="historyOfPosts">
-
+      <div id="historyOfPosts" class="historyOfPosts">
         <div id="informationOfUser">
-            <img src="./Imagenes/usersinfondo.png">
-            <h3>${doc.data().autor}</h3><br>
-            <h5>${doc.data().creacion}</h5>
+            <img src="./Imagenes/usersinfondo.png" class="inLine">
+            <h3 class="inLine">${doc.data().autor}</h3><br>
+            <h5 class="inLine">${doc.data().creacion}</h5>
             <p>${doc.data().descripcion}</p>
         </div>
         

@@ -19,30 +19,3 @@ export const db = getFirestore(app);
 export const auth = getAuth(app);
 export const provider = new GoogleAuthProvider(app);
 
-// Referenciar collection
-
-
-/*const logUsers = async () => {
-  const refColUsers = db.collection('usuarios');
-  const allUsers = await refColUsers.get();
-  for(const doc of allUsers.docs){
-    console.log('obtiene usuario', doc.id, '=>', doc.data());
-  }
-}*/
-// const refColUser = collection(db, 'usuarios')
-
-// Entra a los documentos de la colección
-// const docsOfUsers =  await getDocs(collection(db, "usuarios"))
-//   .then((snapshot) => {
-//     console.log(docsOfUsers)
-//   });
-
-
-
-  /*const logCities = async () => {
-    let citiesRef = db.collection('cities');
-    let allCities = await citiesRef.get();
-    for(const doc of allCities.docs){
-      console.log(doc.id, '=>', doc.data());
-    }
-  }*/

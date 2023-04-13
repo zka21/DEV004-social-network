@@ -299,7 +299,7 @@ line {
 
 /* Información de usuario */
 #informationOfUser {
-  display: flex;
+  /*display: flex;*/
   align-items: center;
   margin-bottom: 10px;
 }
@@ -314,8 +314,43 @@ line {
 
 /* Nombre de usuario */
 #informationOfUser h3 {
-  font-size: 20px;
   margin: 0;
+}
+/*Contenedor de publicaciones*/
+
+.historyOfPosts{
+  margin-bottom: 30px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  overflow: hidden;
+  background: rgb(254 255 254 / 56%);
+  box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2);
+  cursor: default;
+  transition: all 400ms ease;
+  padding: 20px;
+  width: 75%;
+  margin: auto;
+  margin-top: 25px;
+}
+.inLine{
+ display: inline;
+}
+
+.historyOfPosts p {
+  color: #007bff;
+  margin: 20px;
+  font-family: 'Istok Web', sans-serif;
+}
+.historyOfPosts h3 {
+  font-family: 'Readex Pro', sans-serif;
+  font-size: 15px;
+}
+.historyOfPosts h5 {
+  color: rgb(241 130 141 / 76%);
+  font-family: 'Readex Pro', sans-serif;
+  font-size: 15px;
 }
 
 
