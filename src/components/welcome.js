@@ -8,8 +8,7 @@ export const welcome = () => {
   root.innerHTML = `
   <div class="button-container">
     <div class="logo-container">
-      <img class="imageLogo" src="./Imagenes/logoSolo.png" alt="logocactus"> <br>
-      <span class="logoText">Cáo</span><br>
+      <img class="imageLogo" src="./Imagenes/Cáo_logo_Welcome_white.png" alt="logocactus"> <br>
     </div>
     <button class="bw" id="buttonLogin"> INICIAR SESIÓN  </button> <br>
     <button id="buttonGoogle" class="googleButton bw"> INICIAR SESIÓN CON GOOGLE </button> <br>

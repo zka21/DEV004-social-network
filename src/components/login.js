@@ -6,7 +6,7 @@ export const login = () => {
   root.innerHTML = `
   <section id="sectionOfLogin">
   <div id="logoContainer">
-  <img class="imageLogo" src="./Imagenes/logoSolo.png" alt="imagenLogo">
+  <img class="imageLogo" src="./Imagenes/Cáo_logo_Welcome_white.png" alt="logocactus"> <br>
   </div>
   <form id="loginForm">
   <div id="loginDiv">
