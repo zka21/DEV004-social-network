@@ -10,7 +10,7 @@ export const register = () => {
     <section id="sectionOfContentRegister" class="button-container"> 
 
       <div id="logo" class="logo-container">
-        <img class="imageLogo" src="./Imagenes/logoSolo.png">
+      <img class="imageLogo" src="./Imagenes/Cáo_logo_Welcome_white.png" alt="logocactus"> <br> 
       </div>
 
       <h3 id="h3OfRegister" class="greenText">Crea tu cuenta</h3><br>

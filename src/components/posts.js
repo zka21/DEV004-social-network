@@ -20,11 +20,8 @@ export const posts = () => {
     <section id= "containerMain">
 
         <div id="partOfwelcome">
-
-            <img src="../Imagenes/cactusFile.png"><br>
-            
-            <p>Cuentanos algo de las plantas</p>
-
+            <img src="../Imagenes/cáo_navbarwhite.png">
+            <button class="buttonsOfPosts logOutButton" id="logOutBoton"></button>
         </div>
 
         <form id="newPost">
@@ -72,9 +69,6 @@ export const posts = () => {
 `;
     });
   });
-const logOutSection=document.getElementById('logout');
-logOutSection.innerHTML='';
-  logOutSection.innerHTML= `<button class="buttonsOfPosts" id="logOutBoton">Log Out</button>`
 
   const logOut = document.getElementById('logOutBoton');
   logOut.addEventListener('click', () => signOutUser());
