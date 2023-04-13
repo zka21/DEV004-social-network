@@ -11,9 +11,9 @@ export const welcome = () => {
       <img class="imageLogo" src="./Imagenes/logoSolo.png" alt="logocactus"> <br>
       <span class="logoText">Cáo</span><br>
     </div>
-    <button id="buttonLogin"> INICIAR SESIÓN  </button> <br>
-    <button id="buttonGoogle" class="googleButton"> INICIAR SESIÓN CON GOOGLE </button> <br>
-    <button id="buttonRegister" > CREA CUENTA NUEVA</button>
+    <button class="bw" id="buttonLogin"> INICIAR SESIÓN  </button> <br>
+    <button id="buttonGoogle" class="googleButton bw"> INICIAR SESIÓN CON GOOGLE </button> <br>
+    <button class="bw" id="buttonRegister" > CREA CUENTA NUEVA</button>
   </div>`;
   const buttonLogin = document.getElementById('buttonLogin');
   const buttonGoogle = document.getElementById('buttonGoogle');

@@ -24,7 +24,7 @@ body {
     height: 100vh;
     text-align: center;
   }
-  button {
+  .bw {
     background-color: #ffffff;
     color: #A39F9F;
     padding: 10px 20px;
@@ -38,7 +38,7 @@ body {
     width:  303px;
     height: 40px;
   }
-  button:hover {
+  .bw:hover {
     background-color: #8EC63F;
     color: #ffffff;
   }
@@ -285,20 +285,6 @@ body {
   position: relative; /* agregar posición relativa al contenedor */
 }
 
-
-/* Botón de publicar falta aun editar jeje*/
-#newPost button {
-  display: block;
-  margin: 20px auto 0;
-  padding: 10px 20px;
-  font-size: 16px;
-  border-radius: 5px;
-  border: none;
-  background-color: #4CAF50;
-  color: #fff;
-  cursor: pointer;
-}
-
 /* Línea separadora */
 line {
   display: block;
@@ -328,31 +314,6 @@ line {
   margin: 0;
 }
 
-/* Botones de configuración falta aun editar jeje*/
-.buttonsOfConfiguration {
-  display: block;
-  margin: 0 auto;
-  padding: 10px 20px;
-  font-size: 16px;
-  border-radius: 5px;
-  border: none;
-  background-color: #ccc;
-  color: #333;
-  cursor: pointer;
-}
-
-/* Botón de me gusta falta aun editar jeje */
-#historyOfPosts button {
-  display: block;
-  margin: 20px auto 0;
-  padding: 10px 20px;
-  font-size: 16px;
-  border-radius: 5px;
-  border: none;
-  background-color: #4CAF50;
-  color: #fff;
-  cursor: pointer;
-}
 
 
 

@@ -1,5 +1,5 @@
-import { addDoc, onSnapshot } from 'firebase/firestore';
-import { signOutUser, coleccPublic, q } from '../lib/firebaseFunctions';
+import { addDoc, documentId, onSnapshot } from 'firebase/firestore';
+import { signOutUser, coleccPublic, qOrdered } from '../lib/firebaseFunctions';
 import { auth } from '../firebase/firebaseConfig';
 
 const userData = () => {
@@ -10,10 +10,6 @@ const userData = () => {
     const email = user.email;
     const photoURL = user.photoURL;
     const emailVerified = user.emailVerified;
-    // The user's ID, unique to the Firebase project. Do NOT use
-    // this value to authenticate with your backend server, if
-    // you have one. Use User.getToken() instead.
-    const uid = user.uid;
   }
   return user;
 };
@@ -26,7 +22,7 @@ export const posts = () => {
         <div id="partOfwelcome">
 
             <img src="../Imagenes/cactusFile.png"><br>
-            <h2>Bienvenido a Cáo</h2>
+            
             <p>Cuentanos algo de las plantas</p>
 
         </div>
@@ -36,41 +32,26 @@ export const posts = () => {
             <div class="postContainer">
             <textarea id="description" rows="6" cols="50" placeholder="cuentanos algo de las plantas"> </textarea> <br>
             </div>
-            <button id="publishButton" class="buttonsOfPosts" >Publicar</button>
+            <button  >Publicar</button>
 
         </form>
 
-        <line>____________________________________</line> <br><br>
+        
 
-        <div id="historyOfPosts">
+        
 
-            <div id="informationOfUser">
-                <img src="./Imagenes/usersinfondo.png">
-                <h3>Name User</h3><br>
-                <h5>Time</h5>
-                <p></p>
-            </div>
-            
-            <div id="buttonsOfConfiguration">
-                <button class="buttonsOfConfiguration">Edit</button>
-                <button class="buttonsOfConfiguration">Delete</button>
-            </div>
-
-        </div>
-
-        <button class="buttonsOfPosts">Me gusta</button>
-        <button class="buttonsOfPosts" id="logOut">Log Out</button>
+       
+        
         
     </section>
 
     <footer></footer>
     `;
 
-  onSnapshot(q, (querySnapshot) => {
+  onSnapshot(qOrdered, (querySnapshot) => {
     const post = document.getElementById('post');
     post.innerHTML = '';
     querySnapshot.forEach((doc) => {
-      //console.log('mi data', doc.data());
       post.innerHTML += `
       <div id="historyOfPosts">
 
@@ -84,13 +65,18 @@ export const posts = () => {
         <div id="buttonsOfConfiguration">
             <button class="buttonsOfConfiguration">Edit</button>
             <button class="buttonsOfConfiguration">Delete</button>
+            <button >Me gusta</button>
         </div>
 
       </div>
 `;
     });
   });
-  const logOut = document.getElementById('logOut');
+const logOutSection=document.getElementById('logout');
+logOutSection.innerHTML='';
+  logOutSection.innerHTML= `<button class="buttonsOfPosts" id="logOutBoton">Log Out</button>`
+
+  const logOut = document.getElementById('logOutBoton');
   logOut.addEventListener('click', () => signOutUser());
   const today = new Date();
 
@@ -99,10 +85,10 @@ export const posts = () => {
     e.preventDefault();
 
     const infoUser = userData();
-    const guardarPost = addDoc(coleccPublic, {
+    addDoc(coleccPublic, {
       autor: infoUser.email,
       descripcion: publishButton.description.value,
-      creacion: today.toLocaleString('en-US'),
+      creacion: today.toLocaleString('en-GB'),
     })
       .then(() => {
         publishButton.reset();
@@ -110,14 +96,3 @@ export const posts = () => {
   });
   return root;
 };
-
-// const historialDePublicaciones = (p) => {
-//   autor.innerHTML = p.autor;
-//   time.innerHTML = p.creacion;
-//   descriptionOfPublication = p.descripcion;
-// };
-// publicaciones.forEach((p) => {
-//   historialDePublicaciones(p);
-// });
-
-// console.log(listarPosts());

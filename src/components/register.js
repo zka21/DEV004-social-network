@@ -27,8 +27,8 @@ export const register = () => {
       <h6 id="conditionOfRegister" class="greenText">Al crear tu cuenta, estarás aceptando los <br> <spam class="highlightedText" >términos y condiciones</spam> de Cáo</h6><br>
 
       <div id="divButtons">
-        <button id="buttonCrearCuenta" class="buttonsTogether">Crear Cuenta</button>
-        <button id="regresarAlInicio" class="buttonsTogether">Regresar al inicio</button>
+        <button id="buttonCrearCuenta" class="buttonsTogether bw">Crear Cuenta</button>
+        <button id="regresarAlInicio" class="buttonsTogether bw">Regresar al inicio</button>
       </div>
     </section>
     `;

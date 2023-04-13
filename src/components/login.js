@@ -17,8 +17,8 @@ export const login = () => {
       <input id="inputPassword" type="password" placeholder= "Contraseña"></input>
     </div>
     <div id="buttons">
-    <button id="buttonLogin" type="submit">SIGUIENTE</button> <br>
-    <button id="returnToWelcome">REGRESAR AL INICIO</button>
+    <button class="bw" id="buttonLogin" type="submit">SIGUIENTE</button> <br>
+    <button class="bw" id="returnToWelcome">REGRESAR AL INICIO</button>
     </div>
     </div>
   </form>
