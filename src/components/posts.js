@@ -32,14 +32,6 @@ export const posts = () => {
             <button  >Publicar</button>
 
         </form>
-
-        
-
-        
-
-       
-        
-        
     </section>
 
     <footer></footer>
@@ -51,17 +43,25 @@ export const posts = () => {
     querySnapshot.forEach((doc) => {
       post.innerHTML += `
       <div id="historyOfPosts" class="historyOfPosts">
-        <div id="informationOfUser">
-            <img src="./Imagenes/usersinfondo.png" class="inLine">
-            <h3 class="inLine">${doc.data().autor}</h3><br>
-            <h5 class="inLine">${doc.data().creacion}</h5>
+        <div id="informationOfUser" >
+              <div class="user-post">
+                <img src="./Imagenes/usersinfondo.png" class="inLine">
+                <div class="post-informacion">
+                  <h3>${doc.data().autor}</h3>
+                  <h5>${doc.data().creacion}</h5>
+                </div>
+              </div>
             <p>${doc.data().descripcion}</p>
         </div>
         
         <div id="buttonsOfConfiguration">
-            <button class="buttonsOfConfiguration">Edit</button>
-            <button class="buttonsOfConfiguration">Delete</button>
-            <button >Me gusta</button>
+          <div class="likeleft">
+            <button class="edit-button"></button>
+            <button class="delete-button"></button>
+          </div>
+          <div class="editright">
+            <button class="like-button"></button>
+          </div>
         </div>
 
       </div>

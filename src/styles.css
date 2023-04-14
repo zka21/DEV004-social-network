@@ -21,7 +21,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  /* height: 100vh; */
 }
 .container {
   display: flex;
@@ -335,23 +335,10 @@ line {
 
 /* Información de usuario */
 #informationOfUser {
-  /*display: flex;*/
   align-items: center;
   margin-bottom: 10px;
 }
 
-/* Imagen de usuario falta aun editar jeje*/
-#informationOfUser img {
-  width: 50px;
-  height: 50px;
-  margin-right: 10px;
-  border-radius: 50%;
-}
-
-/* Nombre de usuario */
-#informationOfUser h3 {
-  margin: 0;
-}
 /*Contenedor de publicaciones*/
 
 .historyOfPosts{
@@ -370,12 +357,126 @@ line {
   margin: auto;
   margin-top: 25px;
 }
-.inLine{
- display: inline;
+/* desde aqui empiezo zhai */
+.user-post{
+  display: flex;
+  align-items: center;
+}
+/* Imagen de usuario falta aun editar jeje*/
+#informationOfUser img {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+  border-radius: 50%;
 }
 
+/* autor y creacion separados y en linea */
+.post-informacion{
+  display: flex;
+  flex-direction:row;
+  justify-content: space-between;
+  width: 90%;
+}
+
+/* Nombre de usuario */
+#informationOfUser h3 {
+  margin: 0;
+  font-size: 16px;
+  font-family: cursive;
+}
+/* fecha y hora */
+#informationOfUser h5 {
+  margin: 0;
+  font-size: 12px;
+  color: #999;
+}
+/* edit - delete - like */
+#buttonsOfConfiguration{
+  display: flex;
+  justify-content: space-between;
+}
+
+.edit-button { 
+  background-color: transparent;
+  padding: 10px 10px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin: 0px;
+  width:fit-content;
+  height: 10px;
+  display: flex;
+  /* justify-content: space-between;  */
+  align-items:first baseline;
+}
+.edit-button::before {
+  content: ""; 
+  background-image: url(Imagenes/editar-button.png);
+  background-repeat: no-repeat;
+  background-position: center; 
+  background-size: 20px;
+  width: 35px;
+  height: 35px;
+  margin-right: 10px;  
+  }
+
+  .delete-button{ 
+    background-color: transparent;
+    padding: 7px 40px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin: 0px;
+    width:fit-content;
+    height: 10px;
+    display: flex;
+    /* justify-content: space-between;  */
+    align-items: center;
+  }
+  .delete-button::before {
+    content: ""; 
+    background-image: url(Imagenes/eliminar-button.png);
+    background-repeat: no-repeat;
+    background-position: center; 
+    background-size: 20px;
+    width: 35px;
+    height: 35px;
+    margin-right: 10px;  
+    }
+
+    
+  .like-button{ 
+    background-color: transparent;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin: 0px;
+    width:fit-content;
+    height: 15  px;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+  }
+  .like-button::before {
+    content: ""; 
+    background-image: url(Imagenes/planta-button.png);
+    background-repeat: no-repeat;
+    background-position: center; 
+    background-size: 25px;
+    width: 35px;
+    height: 35px;
+    margin-right: 10px;  
+    }
+/*   
+@media only screen and (max-width: 768px) {
+  .post-informacion{
+    display: flex;
+    flex-direction:column;
+    } */
+
 .historyOfPosts p {
-  color: #007bff;
+  color: black;
   margin: 20px;
   font-family: 'Istok Web', sans-serif;
 }
