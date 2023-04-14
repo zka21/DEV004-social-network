@@ -4,25 +4,27 @@ import { onNavigate } from '../router/index.js';
 export const login = () => {
   const root = document.getElementById('root');
   root.innerHTML = `
+  <div class="containerlogin">
   <section id="sectionOfLogin">
-  <div id="logoContainer">
-  <img class="imageLogo" src="./Imagenes/Cáo_logo_Welcome_white.png" alt="logocactus"> <br>
-  </div>
-  <form id="loginForm">
-  <div id="loginDiv">
-    <p id="statusText"></p><br>
-    <h2 class="login-title">Iniciar Sesión</h2><br>
-    <div id = "userDiv">
-      <input id="inputUser" type="email" placeholder= "Correo Electrónico"></input> <br>
-      <input id="inputPassword" type="password" placeholder= "Contraseña"></input>
+    <div id="logoContainer">
+      <img class="imageLogo" src="./Imagenes/Cáo_logo_Welcome_white.png" alt="logocactus"> <br>
     </div>
-    <div id="buttons">
-    <button class="bw" id="buttonLogin" type="submit">SIGUIENTE</button> <br>
-    <button class="bw" id="returnToWelcome">REGRESAR AL INICIO</button>
-    </div>
-    </div>
-  </form>
+    <form id="loginForm">
+      <div id="loginDiv">
+        <p id="statusText"></p>
+        <h2 class="login-title">Iniciar Sesión</h2><br>
+        <div id = "userDiv">
+          <input id="inputUser" type="email" placeholder= "Correo Electrónico"></input> <br>
+          <input id="inputPassword" type="password" placeholder= "Contraseña"></input>
+        </div>
+        <div id="buttons">
+          <button class="bw" id="buttonLogin" type="submit">SIGUIENTE</button> <br>
+          <button class="bw" id="returnToWelcome">REGRESAR AL INICIO</button>
+        </div>
+      </div>
+    </form>
   </section>
+</div>
   `;
   const returnToWelcome = document.getElementById('returnToWelcome');
   returnToWelcome.addEventListener('click', () => onNavigate('/'));
