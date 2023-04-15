@@ -14,7 +14,7 @@ export const register = () => {
       </div>
       <p id="statusText"></p>
 
-      <h3 id="h3OfRegister" class="greenText">Crea tu cuenta</h3><br>
+      <h3 id="h3OfRegister" class="greenText">Crea tu cuenta</h3>
       
 
       <div id="divNames">

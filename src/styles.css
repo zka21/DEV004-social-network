@@ -117,10 +117,10 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* height: 500px; */
+  height: 585px;
   background-color: rgba(190, 211, 154, 0.5);
   background-size: 80% 60%;
-  height: 640px;
+  /* height: 640px; */
   margin: 30px;
   border-radius: 10px;
   padding: 15px;
@@ -130,7 +130,7 @@ body {
   .greenText {
     color: #046425;
     font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-    font-size: 14px;
+    font-size: 13px;
     }
     
  
@@ -141,7 +141,7 @@ body {
   .highlightedText{
     color: #63ab1c;
     font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-    font-size: 14px;
+    font-size: 13px;
   }
   .inputNames{
     color: #A39F9F;
