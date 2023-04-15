@@ -28,13 +28,13 @@ body {
   justify-content: center;
   align-items: center;
   height: 500px;
-  background-color: rgba(202, 222, 167, 0.5);
+  background-color: rgba(190, 211, 154, 0.5);
   background-size: 80% 60%;
-  height: 600px;
-  margin: 0 auto;
+  height: 400px;
+  margin: 120px;
   border-radius: 10px;
   padding: 15px;
-  box-shadow: 0 2px 4px rgba(40, 40, 40, 0.4);
+  box-shadow: 0 2px 4px rgba(24, 24, 24, 0.4);
 }
 .button-container {
   
@@ -113,28 +113,35 @@ body {
 
   /* ...... */
   #sectionOfContentRegister{
-    background-image: url(Imagenes/retro.jpg) ;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
+    /* background-image: url(Imagenes/retro.jpg) ; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* height: 500px; */
+  background-color: rgba(190, 211, 154, 0.5);
+  background-size: 80% 60%;
+  height: 640px;
+  margin: 30px;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 2px 4px rgba(24, 24, 24, 0.4);
   }
 
   .greenText {
     color: #046425;
     font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-    font-size: 13px;
+    font-size: 14px;
     }
     
  
   .buttonsTogether{
-    width:  150px;
+    width:  300px;
     height: 40px;
   }
   .highlightedText{
-    color: #8EC63F;
+    color: #63ab1c;
     font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-    font-size: 13px;
+    font-size: 14px;
   }
   .inputNames{
     color: #A39F9F;
@@ -154,9 +161,9 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 90%;
-    max-width: 400px;
-    margin: 0 auto;
+    width: 70%;
+    max-width: 300px;
+    margin: 10px;
     padding: 20px;
     flex-direction: column;
   }
@@ -165,27 +172,16 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 500px;
+    /* height: 500px; */
     background-color: rgba(202, 222, 167, 0.5);
     background-size: 80% 60%;
-    height: 600px;
-    margin: 0 auto;
+    height: 495px;
+    margin: 110px;
     border-radius: 10px;
     padding: 15px;
     box-shadow: 0 2px 4px rgba(40, 40, 40, 0.4);
   }
-  /* #loginDiv {
-  background-color: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  text-align: center;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  } */
+ 
   #userDiv {
     display: flex;
     flex-direction: column;
@@ -196,8 +192,8 @@ body {
   #inputPassword {
   width: 100%;/* Nueva anchura de cuadro input*/
   max-width: 300px;
-  margin-bottom: 10px;
-  height: 40px; /* Nueva altura */
+  margin-bottom: 0px;
+  height: 35px; /* Nueva altura */
 }
 #buttons {
     width: 100%;
@@ -205,23 +201,25 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top: 20px;
+    margin-top: 10px;
+    
   }
   #loginDiv h2 {
-    color: #046425;
+    color: #008037;
     text-align: left;
     margin-left: 10px;
     font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     margin: 2px;
     align-self: flex-start;
+    margin-bottom: 15px;
   }
   input {
     box-sizing: border-box; /* El ancho incluye el borde y el relleno */
     border: 1px solid #8A8989; /* Borde de 1px con color gris */
     border-radius: 5px; /* Bordes redondeados de 5px */
     padding: 10px; /* Espacio de relleno de 10px */
-    font-size: 16px; /* Tamaño de fuente de 16px */
+    font-size: 15px; /* Tamaño de fuente de 16px */
     background-color: #f2f2f2; /* Color de fondo gris claro */
     color: #333; /* Color del texto negro */
   }
@@ -241,6 +239,7 @@ body {
     border-color: #e86666;
     border-radius: 10px;
     text-align: center;
+    
   }
 
   .statusTextW {
@@ -250,6 +249,8 @@ body {
     border-color: #e86666;
     border-radius: 10px;
     text-align: center;
+    margin-bottom: 20px;
+    
   }
 
   /* Contenedor principal */
@@ -302,7 +303,7 @@ body {
 }
 .logOutButton::before {
   content: ""; 
-  background-image: url(Imagenes/logout.png);
+  background-image: url(Imagenes/salida.png);
   background-repeat: no-repeat;
   background-position: center; 
   background-size: 30px;

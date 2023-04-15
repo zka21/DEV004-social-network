@@ -12,7 +12,7 @@ export const login = () => {
     <form id="loginForm">
       <div id="loginDiv">
         <p id="statusText"></p>
-        <h2 class="login-title">Iniciar Sesión</h2><br>
+        <h2 class="login-title">Iniciar Sesión</h2>
         <div id = "userDiv">
           <input id="inputUser" type="email" placeholder= "Correo Electrónico"></input> <br>
           <input id="inputPassword" type="password" placeholder= "Contraseña"></input>
