@@ -21,7 +21,9 @@ jest.mock('../src/router/index.js', () => ({ onNavigate: jest.fn() }));
 describe('función login', () => {
   it('cuando la promesa de login se cumple, pasa a ruta de posts', () => {
     document.body.innerHTML = "<div id='root'></div>";
+    //document.body.innerHTML = "<div id='post'></div>";
     login();
+    console.log(login());
     const buttonLogin = document.getElementById('buttonLogin');
     buttonLogin.click();
     expect(signInWithEmail).toHaveBeenCalledWith(expect.any(String), expect.any(String));
