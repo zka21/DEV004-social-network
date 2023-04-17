@@ -53,6 +53,9 @@ export const posts = () => {
               </div>
             <p class="mostrado" id="p-${doc.id}">${doc.data().descripcion}</p>
             <textarea class="oculto" id="textarea-${doc.id}">${doc.data().descripcion}</textarea>
+            <div class="editright likeleft">
+                <button class="like-button"></button>
+              </div>
         </div>
          ${
   (doc.data().autor === userData().email)
@@ -62,9 +65,7 @@ export const posts = () => {
                 <button class="edit-button" data-id="${doc.id}"></button>
                 <button class="delete-button"></button>
               </div>
-              <div class="editright">
-                <button class="like-button"></button>
-              </div>
+              
             </div>
             `
     : ''
