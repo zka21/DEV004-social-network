@@ -63,8 +63,8 @@ export const login = () => {
         }
       });
   });
+  // const post = document.getElementById('post');
+  // post.innerHTML = `
+  // `;
   return root;
 };
-const post = document.getElementById('post');
-post.innerHTML = `
- `;

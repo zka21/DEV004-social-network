@@ -1,6 +1,6 @@
-import { addDoc, documentId, onSnapshot } from 'firebase/firestore';
+import { addDoc, documentId, onSnapshot, updateDoc, doc } from 'firebase/firestore';
 import { signOutUser, coleccPublic, qOrdered } from '../lib/firebaseFunctions';
-import { auth } from '../firebase/firebaseConfig';
+import { auth, db } from '../firebase/firebaseConfig';
 
 const userData = () => {
   const user = auth.currentUser;
@@ -43,7 +43,7 @@ export const posts = () => {
     querySnapshot.forEach((doc) => {
       post.innerHTML += `
       <div id="historyOfPosts" class="historyOfPosts">
-        <div id="informationOfUser" >
+        <div class="informationOfUser" id="${doc.id}">
               <div class="user-post">
                 <img src="./Imagenes/usersinfondo.png" class="inLine">
                 <div class="post-informacion">
@@ -51,21 +51,50 @@ export const posts = () => {
                   <h5>${doc.data().creacion}</h5>
                 </div>
               </div>
-            <p>${doc.data().descripcion}</p>
+            <p class="mostrado" id="p-${doc.id}">${doc.data().descripcion}</p>
+            <textarea class="oculto" id="textarea-${doc.id}">${doc.data().descripcion}</textarea>
         </div>
-        
-        <div id="buttonsOfConfiguration">
-          <div class="likeleft">
-            <button class="edit-button"></button>
-            <button class="delete-button"></button>
-          </div>
-          <div class="editright">
-            <button class="like-button"></button>
-          </div>
-        </div>
-
+         ${
+  (doc.data().autor === userData().email)
+    ? `
+            <div id="buttonsOfConfiguration">
+              <div class="likeleft">
+                <button class="edit-button" data-id="${doc.id}"></button>
+                <button class="delete-button"></button>
+              </div>
+              <div class="editright">
+                <button class="like-button"></button>
+              </div>
+            </div>
+            `
+    : ''
+}
       </div>
-`;
+      `;
+    });
+    const editButton = post.querySelectorAll('.edit-button');
+    console.log(editButton);
+    editButton.forEach((boton) => {
+      boton.addEventListener('click', (e) => {
+        document.getElementById(e.target.dataset.id)
+          .innerHTML += `
+       <button id="g-${e.target.dataset.id}">Guardar</button>
+       `;
+        document.getElementById(`p-${e.target.dataset.id}`)
+          .setAttribute('class', 'oculto');
+        const textAIn = document.getElementById(`textarea-${e.target.dataset.id}`);
+        //document.getElementById(`textarea-${e.target.dataset.id}`)
+        textAIn.setAttribute('class', 'mostrado');
+        console.log(e.target.dataset.id);
+        document.getElementById(`g-${e.target.dataset.id}`)
+          .addEventListener('click', () => {
+            console.log('click guardar');
+            const docRef = doc(db, 'publicaciones', e.target.dataset.id);
+            updateDoc(docRef, {
+              descripcion: textAIn.value,
+            });
+          });
+      });
     });
   });
 
