@@ -84,10 +84,15 @@ export const posts = () => {
       const likeB = document.querySelectorAll('.like-button');
       const dislikeB = document.querySelectorAll('.dislike-button');
       likeB.forEach((btn) => {
+        if (post.data().likes.includes(userData().email)) {
+          // dislikeB.setAttribute('class', 'oculto');
+        } else {
+          // likeB.setAttribute('class', 'oculto');
+        }
         btn.addEventListener('click', () => {
           console.log(btn.dataset.email, userData().email, post.data().likes);
           like(btn.dataset.email, userData().email);
-          btn.classList.toggle('dislike-button')
+          btn.classList.toggle('dislike-button');
           // if (post.data().likes.includes(userData().email)) {
           //   dislikeB.classList.add('oculto');
           //   //likeB.setAttribute('class', 'mostrado');
@@ -139,7 +144,6 @@ export const posts = () => {
       updateDoc(docRef, { likes: arrayRemove(userData().email) });
     };
 
-    
     // const likePost = ((muro) => {
     //   muro.forEach((publicaciones) => {
     //     if (publicaciones.like.includes(userData().email)) {

@@ -6,26 +6,24 @@ import { onNavigate } from '../src/router/index.js';
 
 jest.mock('../src/lib/firebaseFunctions.js', () => (
   {
+    createUserWithPassword: jest.fn(() => Promise.resolve({ user: { email: 'user@gmail.com' } })),
     signInWithEmail: jest.fn(() => Promise.resolve({ email: 'user@gmail.com' })),
   }
 ));
 
-jest.mock('../src/lib/firebaseFunctions.js', () => (
-  {
-    createUserWithPassword: jest.fn(() => Promise.resolve({ email: 'user@gmail.com' })),
-  }
-));
-
 jest.mock('../src/router/index.js', () => ({ onNavigate: jest.fn() }));
-
+afterEach(() => {
+  jest.clearAllMocks();
+});
 describe('función login', () => {
   it('cuando la promesa de login se cumple, pasa a ruta de posts', () => {
     document.body.innerHTML = "<div id='root'></div>";
-    //document.body.innerHTML = "<div id='post'></div>";
+    // document.body.innerHTML = "<div id='post'></div>";
     login();
     console.log(login());
     const buttonLogin = document.getElementById('buttonLogin');
     buttonLogin.click();
+    // const signInWithEmail = jest.fn(() => Promise.resolve({ email: 'user@gmail.com' }));
     expect(signInWithEmail).toHaveBeenCalledWith(expect.any(String), expect.any(String));
     return Promise.resolve().then(() => { expect(onNavigate).toHaveBeenCalledWith('/posts'); });
   });
@@ -41,7 +39,7 @@ describe('función login', () => {
 //     const buttonRegister = document.getElementById('buttonCrearCuenta');
 //     buttonRegister.click();
 //     expect(createUserWithPassword).toHaveBeenCalledWith(expect.any(String), expect.any(String));
-//     return Promise.resolve().then(() => { expect(onNavigate).toHaveBeenCalledWith('/posts'); });
+//     return Promise.resolve().then((user) => { expect (user).toStrictEqual({ user: { email: 'user@gmail.com' } }) });
 //   });
 //   it('cuando usuario y contraseña son INcorrectas ser una función', () => {
 //     expect(typeof register).toBe('function');
