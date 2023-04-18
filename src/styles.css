@@ -461,7 +461,7 @@ line {
   }
   .like-button::before {
     content: ""; 
-    background-image: url(Imagenes/planta-button.png);
+    background-image: url(Imagenes/plant_bw.png);
     background-repeat: no-repeat;
     background-position: center; 
     background-size: 25px;
@@ -469,6 +469,52 @@ line {
     height: 35px;
     margin-right: 10px;  
     }
+    .like-button{ 
+    background-color: transparent;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin: 0px;
+    width:fit-content;
+    height: 15  px;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+  }
+  .like-button::before {
+    content: ""; 
+    background-image: url(Imagenes/plant_bw.png);
+    background-repeat: no-repeat;
+    background-position: center; 
+    background-size: 25px;
+    width: 35px;
+    height: 35px;
+    margin-right: 10px;  
+    }
+    .dislike-button{ 
+      background-color: transparent;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin: 0px;
+      width:fit-content;
+      height: 15  px;
+      display: flex;
+      justify-content: space-between; 
+      align-items: center;
+    }
+    .dislike-button::before {
+      content: ""; 
+      background-image: url(Imagenes/plant_color.png);
+      background-repeat: no-repeat;
+      background-position: center; 
+      background-size: 25px;
+      width: 35px;
+      height: 35px;
+      margin-right: 10px;  
+      }
 /*   
 @media only screen and (max-width: 768px) {
   .post-informacion{
