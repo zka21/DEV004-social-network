@@ -84,7 +84,6 @@ export const posts = () => {
         document.getElementById(`p-${e.target.dataset.id}`)
           .setAttribute('class', 'oculto');
         const textAIn = document.getElementById(`textarea-${e.target.dataset.id}`);
-        //document.getElementById(`textarea-${e.target.dataset.id}`)
         textAIn.setAttribute('class', 'mostrado');
         console.log(e.target.dataset.id);
         document.getElementById(`g-${e.target.dataset.id}`)
@@ -98,27 +97,24 @@ export const posts = () => {
       });
     });
     const deleteButton = post.querySelectorAll('.delete-button');
-    
     deleteButton.forEach((boton) => {
       boton.addEventListener('click', (e) => {
-        console.log("funciona el boton de eliminar", deleteButton);
-        document.getElementById(e.target.dataset.id)
-        
-        if(confirm('Deseas eliminar este comentario')){
+        document.getElementById(e.target.dataset.id);
+        if (confirm('¿Deseas eliminar este comentario?')) {
           const docRef = doc(db, 'publicaciones', e.target.dataset.id);
           deleteDoc(docRef);
         }
-      })
-    })
+      });
+    });
   });
-  const like= ()=>{
-    const docRef = doc(db,'publicaciones', id);
-    updateDoc(docRef,{likes: arrayUnion(userData().email)});
-  }
-  const disLike= ()=>{
-    const docRef = doc(db,'publicaciones', id);
-    updateDoc(docRef,{likes: arrayRemove(userData().email)});
-  }
+  const like = () => {
+    const docRef = doc(db, 'publicaciones', id);
+    updateDoc(docRef, { likes: arrayUnion(userData().email) });
+  };
+  const disLike = () => {
+    const docRef = doc(db, 'publicaciones', id);
+    updateDoc(docRef, { likes: arrayRemove(userData().email) });
+  };
 
   const logOut = document.getElementById('logOutBoton');
   logOut.addEventListener('click', () => signOutUser());
