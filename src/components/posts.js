@@ -1,4 +1,4 @@
-import { addDoc, documentId, onSnapshot, updateDoc, doc } from 'firebase/firestore';
+import { addDoc, documentId, onSnapshot, updateDoc, doc, deleteDoc } from 'firebase/firestore';
 import { signOutUser, coleccPublic, qOrdered } from '../lib/firebaseFunctions';
 import { auth, db } from '../firebase/firebaseConfig';
 
@@ -63,7 +63,7 @@ export const posts = () => {
             <div id="buttonsOfConfiguration">
               <div class="likeleft">
                 <button class="edit-button" data-id="${doc.id}"></button>
-                <button class="delete-button"></button>
+                <button class="delete-button" data-id="${doc.id}"></button>
               </div>
               
             </div>
@@ -97,6 +97,18 @@ export const posts = () => {
           });
       });
     });
+    const deleteButton = post.querySelectorAll('.delete-button');
+    
+    deleteButton.forEach((boton) => {
+      boton.addEventListener('click', (e) => {
+        console.log("funciona el boton de eliminar", deleteButton);
+        document.getElementById(e.target.dataset.id)
+        const docRef = doc(db, 'publicaciones', e.target.dataset.id);
+        deleteDoc(docRef);
+
+        
+      })
+    })
   });
 
   const logOut = document.getElementById('logOutBoton');
