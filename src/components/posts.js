@@ -1,4 +1,6 @@
-import { addDoc, documentId, onSnapshot, updateDoc, doc, deleteDoc,arrayUnion, arrayRemove } from 'firebase/firestore';
+import {
+  addDoc, documentId, onSnapshot, updateDoc, doc, deleteDoc, arrayUnion, arrayRemove,
+} from 'firebase/firestore';
 import { signOutUser, coleccPublic, qOrdered } from '../lib/firebaseFunctions';
 import { auth, db } from '../firebase/firebaseConfig';
 
@@ -36,34 +38,40 @@ export const posts = () => {
 
     <footer></footer>
     `;
+  const like = (id, email) => {
+    const docRef = doc(db, 'publicaciones', id);
 
+    updateDoc(docRef, { likes: arrayUnion(email) });
+  };
   onSnapshot(qOrdered, (querySnapshot) => {
-    const post = document.getElementById('post');
-    post.innerHTML = '';
-    querySnapshot.forEach((doc) => {
-      post.innerHTML += `
+    const postContainer = document.getElementById('post');
+    postContainer.innerHTML = '';
+    querySnapshot.forEach((post) => {
+      // console.log(post.data().likes);
+      postContainer.innerHTML += `
       <div id="historyOfPosts" class="historyOfPosts">
-        <div class="informationOfUser" id="${doc.id}">
+        <div class="informationOfUser" id="${post.id}">
               <div class="user-post">
                 <img src="./Imagenes/usersinfondo.png" class="inLine">
                 <div class="post-informacion">
-                  <h3>${doc.data().autor}</h3>
-                  <h5>${doc.data().creacion}</h5>
+                  <h3>${post.data().autor}</h3>
+                  <h5>${post.data().creacion}</h5>
                 </div>
               </div>
-            <p class="mostrado" id="p-${doc.id}">${doc.data().descripcion}</p>
-            <textarea class="oculto" id="textarea-${doc.id}">${doc.data().descripcion}</textarea>
+            <p class="mostrado" id="p-${post.id}">${post.data().descripcion}</p>
+            <textarea class="oculto" id="textarea-${post.id}">${post.data().descripcion}</textarea>
             <div class="editright likeleft">
-                <button class="like-button"></button>
+                <button class="like-button" data-email="${post.id}" id="like-button" ></button>
+                <button class="dislike-button" id="dislike-button"></button>
               </div>
         </div>
          ${
-  (doc.data().autor === userData().email)
+  (post.data().autor === userData().email)
     ? `
             <div id="buttonsOfConfiguration">
               <div class="likeleft">
-                <button class="edit-button" data-id="${doc.id}"></button>
-                <button class="delete-button" data-id="${doc.id}"></button>
+                <button class="edit-button" data-id="${post.id}"></button>
+                <button class="delete-button" data-id="${post.id}"></button>
               </div>
               
             </div>
@@ -72,8 +80,30 @@ export const posts = () => {
 }
       </div>
       `;
+      // console.log(post.data().likes)
+      const likeB = document.querySelectorAll('.like-button');
+      const dislikeB = document.querySelectorAll('.dislike-button');
+      likeB.forEach((btn) => {
+        if (post.data().likes.includes(userData().email)) {
+          // dislikeB.setAttribute('class', 'oculto');
+        } else {
+          // likeB.setAttribute('class', 'oculto');
+        }
+        btn.addEventListener('click', () => {
+          console.log(btn.dataset.email, userData().email, post.data().likes);
+          like(btn.dataset.email, userData().email);
+          btn.classList.toggle('dislike-button');
+          // if (post.data().likes.includes(userData().email)) {
+          //   dislikeB.classList.add('oculto');
+          //   //likeB.setAttribute('class', 'mostrado');
+          // } else {
+          //   likeB.setAttribute('class', 'oculto');
+          // }
+        });
+      });
     });
-    const editButton = post.querySelectorAll('.edit-button');
+
+    const editButton = postContainer.querySelectorAll('.edit-button');
     console.log(editButton);
     editButton.forEach((boton) => {
       boton.addEventListener('click', (e) => {
@@ -84,7 +114,6 @@ export const posts = () => {
         document.getElementById(`p-${e.target.dataset.id}`)
           .setAttribute('class', 'oculto');
         const textAIn = document.getElementById(`textarea-${e.target.dataset.id}`);
-        //document.getElementById(`textarea-${e.target.dataset.id}`)
         textAIn.setAttribute('class', 'mostrado');
         console.log(e.target.dataset.id);
         document.getElementById(`g-${e.target.dataset.id}`)
@@ -97,28 +126,40 @@ export const posts = () => {
           });
       });
     });
-    const deleteButton = post.querySelectorAll('.delete-button');
-    
+    const deleteButton = postContainer.querySelectorAll('.delete-button');
     deleteButton.forEach((boton) => {
       boton.addEventListener('click', (e) => {
-        console.log("funciona el boton de eliminar", deleteButton);
-        document.getElementById(e.target.dataset.id)
-        
-        if(confirm('Deseas eliminar este comentario')){
+        console.log('funciona el boton de eliminar', deleteButton);
+        document.getElementById(e.target.dataset.id);
+        if (confirm('¿Deseas eliminar este comentario?')) {
           const docRef = doc(db, 'publicaciones', e.target.dataset.id);
           deleteDoc(docRef);
         }
-      })
-    })
+      });
+    });
+    // const likes = [];
+
+    const disLike = () => {
+      const docRef = doc(db, 'publicaciones', id);
+      updateDoc(docRef, { likes: arrayRemove(userData().email) });
+    };
+
+    // const likePost = ((muro) => {
+    //   muro.forEach((publicaciones) => {
+    //     if (publicaciones.like.includes(userData().email)) {
+    //       likeB.setAttribute('class', 'mostrado');
+    //     } else {
+    //       dislikeB.setAttribute('class', 'oculto');
+    //     }
+    //   });
+    // });
+    // const likeButton = document.querySelectorAll('.like-button');
+    // likeButton.forEach((botonL) => {
+    //   botonL.addEventListener('click', () => {
+    //     console.log('funciona boton like');
+    //   });
+    // });
   });
-  const like= ()=>{
-    const docRef = doc(db,'publicaciones', id);
-    updateDoc(docRef,{likes: arrayUnion(userData().email)});
-  }
-  const disLike= ()=>{
-    const docRef = doc(db,'publicaciones', id);
-    updateDoc(docRef,{likes: arrayRemove(userData().email)});
-  }
 
   const logOut = document.getElementById('logOutBoton');
   logOut.addEventListener('click', () => signOutUser());
@@ -133,6 +174,7 @@ export const posts = () => {
       autor: infoUser.email,
       descripcion: publishButton.description.value,
       creacion: today.toLocaleString('en-GB'),
+      likes: [],
     })
       .then(() => {
         publishButton.reset();
