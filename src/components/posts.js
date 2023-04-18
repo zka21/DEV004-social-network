@@ -103,10 +103,11 @@ export const posts = () => {
       boton.addEventListener('click', (e) => {
         console.log("funciona el boton de eliminar", deleteButton);
         document.getElementById(e.target.dataset.id)
-        const docRef = doc(db, 'publicaciones', e.target.dataset.id);
-        deleteDoc(docRef);
-
         
+        if(confirm('Deseas eliminar este comentario')){
+          const docRef = doc(db, 'publicaciones', e.target.dataset.id);
+          deleteDoc(docRef);
+        }
       })
     })
   });
