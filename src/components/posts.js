@@ -1,4 +1,4 @@
-import { addDoc, documentId, onSnapshot, updateDoc, doc, deleteDoc } from 'firebase/firestore';
+import { addDoc, documentId, onSnapshot, updateDoc, doc, deleteDoc,arrayUnion, arrayRemove } from 'firebase/firestore';
 import { signOutUser, coleccPublic, qOrdered } from '../lib/firebaseFunctions';
 import { auth, db } from '../firebase/firebaseConfig';
 
@@ -111,6 +111,14 @@ export const posts = () => {
       })
     })
   });
+  const like= ()=>{
+    const docRef = doc(db,'publicaciones', id);
+    updateDoc(docRef,{likes: arrayUnion(userData().email)});
+  }
+  const disLike= ()=>{
+    const docRef = doc(db,'publicaciones', id);
+    updateDoc(docRef,{likes: arrayRemove(userData().email)});
+  }
 
   const logOut = document.getElementById('logOutBoton');
   logOut.addEventListener('click', () => signOutUser());
