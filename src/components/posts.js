@@ -55,7 +55,7 @@ export const posts = () => {
                 <img src="./Imagenes/usersinfondo.png" class="inLine">
                 <div class="post-informacion">
                   <h3>${post.data().autor}</h3>
-                  <h5>${post.data().creacion}</h5>
+                  <h6>${post.data().creacion}</h6>
                 </div>
               </div>
             <p class="mostrado" id="p-${post.id}">${post.data().descripcion}</p>
