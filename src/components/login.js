@@ -33,6 +33,7 @@ export const login = () => {
   const buttonLogin = document.getElementById('buttonLogin');
 
   buttonLogin.addEventListener('click', (e) => {
+    console.log('me hicieron click');
     e.preventDefault();
     const statusDiv = document.getElementById('statusText');
     const password = loginPassword.value;
