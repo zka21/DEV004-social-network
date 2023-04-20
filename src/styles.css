@@ -363,10 +363,10 @@ line {
   display: flex;
   align-items: center;
 }
-/* Imagen de usuario falta aun editar jeje*/
+/* Imagen de usuario falta aun editar */
 .informationOfUser img {
-  width: 50px;
-  height: 50px;
+  width: 30px;
+  height: 30px;
   margin-right: 10px;
   border-radius: 50%;
 }
@@ -445,7 +445,6 @@ line {
     margin-right: 10px;  
     }
 
-    
   .like-button{ 
     background-color: transparent;
     padding: 10px 20px;
@@ -515,12 +514,6 @@ line {
       height: 35px;
       margin-right: 10px;  
       }
-/*   
-@media only screen and (max-width: 768px) {
-  .post-informacion{
-    display: flex;
-    flex-direction:column;
-    } */
 
 .historyOfPosts p {
   color: black;
@@ -531,10 +524,10 @@ line {
   font-family: 'Readex Pro', sans-serif;
   font-size: 15px;
 }
-.historyOfPosts h5 {
-  color: rgb(241 130 141 / 76%);
+.historyOfPosts h6 {
+  color: rgba(19, 163, 72, 0.6);
   font-family: 'Readex Pro', sans-serif;
-  font-size: 15px;
+  font-size: 11px;
 }
 
 .mostrado {
@@ -545,3 +538,11 @@ line {
  display: none;
 }
 
+@media(max-width:700px){
+.post-informacion {
+    display: block;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 90%;
+}
+}
