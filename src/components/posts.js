@@ -43,6 +43,11 @@ export const posts = () => {
 
     updateDoc(docRef, { likes: arrayUnion(email) });
   };
+  const disLike = (id, email) => {
+    const docRef = doc(db, 'publicaciones', id);
+    updateDoc(docRef, { likes: arrayRemove(email) });
+  };
+
   onSnapshot(qOrdered, (querySnapshot) => {
     const postContainer = document.getElementById('post');
     postContainer.innerHTML = '';
@@ -60,16 +65,16 @@ export const posts = () => {
               </div>
             <p class="mostrado" id="p-${post.id}">${post.data().descripcion}</p>
             <textarea class="oculto" id="textarea-${post.id}">${post.data().descripcion}</textarea>
-            <div class="editright likeleft">
+            <div class="editright likeleft" id="buttonLike">
                 <button class="like-button" data-email="${post.id}" id="like-button" ></button>
-                <button class="dislike-button" id="dislike-button"></button>
+                <button class="dislike-button" data-email="${post.id}" id="dislike-button" ></button>
               </div>
         </div>
          ${
   (post.data().autor === userData().email)
     ? `
             <div id="buttonsOfConfiguration">
-              <div class="likeleft">
+              <div class="likeleft" id="likeleft">
                 <button class="edit-button" data-id="${post.id}"></button>
                 <button class="delete-button" data-id="${post.id}"></button>
               </div>
@@ -81,18 +86,23 @@ export const posts = () => {
       </div>
       `;
       // console.log(post.data().likes)
-      const likeB = document.querySelectorAll('.like-button');
-      const dislikeB = document.querySelectorAll('.dislike-button');
+      const likeB = document.querySelectorAll('.like-button'); // transparente
+      const dislikeB = document.querySelectorAll('.dislike-button'); // color
       likeB.forEach((btn) => {
         if (post.data().likes.includes(userData().email)) {
-          // dislikeB.setAttribute('class', 'oculto');
+          //likeB.classList.add('oculto');
         } else {
-          // likeB.setAttribute('class', 'oculto');
+          //dislikeB.classList.add('oculto');
         }
         btn.addEventListener('click', () => {
-          console.log(btn.dataset.email, userData().email, post.data().likes);
-          like(btn.dataset.email, userData().email);
-          btn.classList.toggle('dislike-button');
+          if (post.data().likes.includes(userData().email)) {
+            btn.classList.toggle('dislike-button');
+            like(btn.dataset.email, userData().email);
+            console.log(btn.dataset.email, userData().email, post.data().likes);
+          } else {
+            btn.classList.toggle('dislike-button');
+            disLike(btn.dataset.email, userData().email);
+          }
           // if (post.data().likes.includes(userData().email)) {
           //   dislikeB.classList.add('oculto');
           //   //likeB.setAttribute('class', 'mostrado');
@@ -138,11 +148,6 @@ export const posts = () => {
       });
     });
     // const likes = [];
-
-    const disLike = () => {
-      const docRef = doc(db, 'publicaciones', id);
-      updateDoc(docRef, { likes: arrayRemove(userData().email) });
-    };
 
     // const likePost = ((muro) => {
     //   muro.forEach((publicaciones) => {
