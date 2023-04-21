@@ -38,15 +38,16 @@ export const posts = () => {
 
     <footer></footer>
     `;
-  const like = (id, email) => {
-    const docRef = doc(db, 'publicaciones', id);
+  async function like(idPublicacion, correoUsuario) {
+    const docRef = doc(db, 'publicaciones', idPublicacion);
+    await updateDoc(docRef, { likes: arrayUnion(correoUsuario) });
+  }
 
-    updateDoc(docRef, { likes: arrayUnion(email) });
-  };
-  const disLike = (id, email) => {
-    const docRef = doc(db, 'publicaciones', id);
-    updateDoc(docRef, { likes: arrayRemove(email) });
-  };
+  // Define la función "no me gusta"
+  async function disLike(idPublicacion, correoUsuario) {
+    const docRef = doc(db, 'publicaciones', idPublicacion);
+    await updateDoc(docRef, { likes: arrayRemove(correoUsuario) });
+  }
 
   onSnapshot(qOrdered, (querySnapshot) => {
     const postContainer = document.getElementById('post');
@@ -66,8 +67,7 @@ export const posts = () => {
             <p class="mostrado" id="p-${post.id}">${post.data().descripcion}</p>
             <textarea class="oculto" id="textarea-${post.id}">${post.data().descripcion}</textarea>
             <div class="editright likeleft" id="buttonLike">
-                <button class="like-button" data-email="${post.id}" id="like-button" ></button>
-                <button class="dislike-button" data-email="${post.id}" id="dislike-button" ></button>
+                <button class="like-button l-button" data-email="${post.id}" id="like-button" ></button>
               </div>
         </div>
          ${
@@ -86,35 +86,32 @@ export const posts = () => {
       </div>
       `;
       // console.log(post.data().likes)
-      const likeB = document.querySelectorAll('.like-button'); // transparente
-      const dislikeB = document.querySelectorAll('.dislike-button'); // color
+      const likeB = document.querySelectorAll('.l-button'); // transparente
+
       likeB.forEach((btn) => {
-        if (post.data().likes.includes(userData().email)) {
-          //likeB.classList.add('oculto');
-        } else {
-          //dislikeB.classList.add('oculto');
-        }
         btn.addEventListener('click', () => {
           if (post.data().likes.includes(userData().email)) {
-            btn.classList.toggle('dislike-button');
-            like(btn.dataset.email, userData().email);
-            console.log(btn.dataset.email, userData().email, post.data().likes);
+            console.log('if');
+            disLike(btn.dataset.email, userData().email).then(() => {
+              btn.classList.toggle('like-button');
+              btn.classList.toggle('dislike-button');
+            }).catch((error) => {
+              console.log(error);
+            });
           } else {
-            btn.classList.toggle('dislike-button');
-            disLike(btn.dataset.email, userData().email);
+            like(btn.dataset.email, userData().email).then(() => {
+              btn.classList.toggle('like-button');
+              btn.classList.toggle('dislike-button');
+            }).catch((error) => {
+              console.log(error);
+            });
+            console.log('entro al else');
           }
-          // if (post.data().likes.includes(userData().email)) {
-          //   dislikeB.classList.add('oculto');
-          //   //likeB.setAttribute('class', 'mostrado');
-          // } else {
-          //   likeB.setAttribute('class', 'oculto');
-          // }
         });
       });
     });
 
     const editButton = postContainer.querySelectorAll('.edit-button');
-    console.log(editButton);
     editButton.forEach((boton) => {
       boton.addEventListener('click', (e) => {
         document.getElementById(e.target.dataset.id)
