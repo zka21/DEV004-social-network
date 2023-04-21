@@ -468,7 +468,7 @@ line {
     height: 35px;
     margin-right: 10px;  
     }
-    .like-button{ 
+    /* .like-button{ 
     background-color: transparent;
     padding: 10px 20px;
     border: none;
@@ -490,7 +490,7 @@ line {
     width: 35px;
     height: 35px;
     margin-right: 10px;  
-    }
+    } */
     .dislike-button{ 
       background-color: transparent;
       padding: 10px 20px;
