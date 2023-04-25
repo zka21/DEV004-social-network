@@ -60,7 +60,7 @@ Para garantizar la accesibilidad de nuestra página web en dispositivos móviles
   - Al guardar los cambios debe cambiar de vuelta a un texto normal pero con la
     información editada.
   - Al recargar la página debo de poder ver los textos editados.
-  ## Objetivos generales del proyecto son los siguientes:
+## Objetivos generales del proyecto son los siguientes:
 * Desarrollar una SPA con la temática de red socia.l
 * Aplicar los conceptos de responsividad en el desarrollo de las vistas (templates)
 * Implementar un router para la navegación entre las diferentes vistas de la aplicación.
