@@ -3,6 +3,8 @@ import {
 } from 'firebase/firestore';
 import { signOutUser, coleccPublic, qOrdered } from '../lib/firebaseFunctions';
 import { auth, db } from '../firebase/firebaseConfig';
+import barril from '../Imagenes/cáo_navbarwhite.png';
+import userfondo from '../Imagenes/usersinfondo.png';
 
 const userData = () => {
   const user = auth.currentUser;
@@ -22,7 +24,7 @@ export const posts = () => {
     <section id= "containerMain">
 
         <div id="partOfwelcome">
-            <img src="../Imagenes/cáo_navbarwhite.png">
+            <img src="${barril}">
             <button class="buttonsOfPosts logOutButton" id="logOutBoton"></button>
         </div>
 
@@ -58,7 +60,7 @@ export const posts = () => {
       <div id="historyOfPosts" class="historyOfPosts">
         <div class="informationOfUser" id="${post.id}">
               <div class="user-post">
-                <img src="./Imagenes/usersinfondo.png" class="inLine">
+                <img src="${userfondo}" class="inLine">
                 <div class="post-informacion">
                   <h3>${post.data().autor}</h3>
                   <h6>${post.data().creacion}</h6>

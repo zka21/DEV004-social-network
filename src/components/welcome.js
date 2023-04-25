@@ -1,5 +1,7 @@
 import { loginGoogle } from '../lib/firebaseFunctions.js';
 import { onNavigate } from '../router/index.js';
+import barril from '../Imagenes/Cáo_logo_Welcome_white.png';
+
 
 export const welcome = () => {
   const root = document.getElementById('root');
@@ -9,7 +11,7 @@ export const welcome = () => {
   <div class="container">
   <div class="button-container">
     <div class="logo-container">
-      <img class="imageLogo" src="./Imagenes/Cáo_logo_Welcome_white.png" alt="logocactus">
+      <img class="imageLogo" src='${barril}'" alt="logocactus">
     </div><br>
     <button class="bw" id="buttonLogin"> INICIAR SESIÓN  </button> <br>
     <button id="buttonGoogle" class="googleButton bw"> INICIAR SESIÓN CON GOOGLE </button><br>
