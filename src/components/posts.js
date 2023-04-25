@@ -1,8 +1,19 @@
 import {
-  addDoc, documentId, onSnapshot, updateDoc, doc, deleteDoc, arrayUnion, arrayRemove,
+  onSnapshot,
+  updateDoc,
+  doc,
+  deleteDoc,
+  arrayUnion,
+  arrayRemove,
 } from 'firebase/firestore';
-import { signOutUser, coleccPublic, qOrdered } from '../lib/firebaseFunctions';
+
+import {
+  signOutUser, qOrdered, creatPost,
+} from '../lib/firebaseFunctions';
+
 import { auth, db } from '../firebase/firebaseConfig';
+import logo from '../Imagenes/cáo_navbarwhite.png';
+import usuario from '../Imagenes/usersinfondo.png';
 
 const userData = () => {
   const user = auth.currentUser;
@@ -22,7 +33,7 @@ export const posts = () => {
     <section id= "containerMain">
 
         <div id="partOfwelcome">
-            <img src="../Imagenes/cáo_navbarwhite.png">
+            <img src="${logo}">
             <button class="buttonsOfPosts logOutButton" id="logOutBoton"></button>
         </div>
 
@@ -58,7 +69,7 @@ export const posts = () => {
       <div id="historyOfPosts" class="historyOfPosts">
         <div class="informationOfUser" id="${post.id}">
               <div class="user-post">
-                <img src="./Imagenes/usersinfondo.png" class="inLine">
+                <img src="${usuario}" class="inLine">
                 <div class="post-informacion">
                   <h3>${post.data().autor}</h3>
                   <h6>${post.data().creacion}</h6>
@@ -172,7 +183,7 @@ export const posts = () => {
     e.preventDefault();
 
     const infoUser = userData();
-    addDoc(coleccPublic, {
+    creatPost({
       autor: infoUser.email,
       descripcion: publishButton.description.value,
       creacion: today.toLocaleString('en-GB'),
