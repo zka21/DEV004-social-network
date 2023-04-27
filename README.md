@@ -24,13 +24,13 @@ para demostrar que ya no me gusta determinada publicación (Este comportamiento 
 ## Protótipo de alta fidelidad
  Para crear el prototipo de alta fidelidad de Cáo en Figma, primero identificamos las diferentes secciones y funcionalidades de la aplicación, como la pantalla de inicio de sesión y la sección de las publicaciones.
 
-![Protótipo en Figma](./src/imagenes/captura.jpg)
+![Protótipo en Figma](src/imagenes/captura.jpg)
 ## Diseño responsive
 Para garantizar la accesibilidad de nuestra página web en dispositivos móviles, aplicamos la metodología "Mobile First" en el proceso de diseño. Siguiendo este enfoque, nos aseguramos de que la página sea fácilmente navegable en pantallas más pequeñas y que los elementos importantes estén ubicados en posiciones adecuadas. Una vez finalizado el diseño móvil, ampliamos la presentación a tamaño de pantalla más grande y ajustamos el diseño según sea necesario para asegurar una adaptabilidad total de la página en otas las plataformas.
 
 ![Protótipo en Figma](src/Imagenes/Capturaescritorio.JPG)
-![Protótipo en Figma](./src/imagenes/capturamovil.jpg)
-![Protótipo en Figma](./src/imagenes/capturatablet.jpg)
+![Protótipo en Figma](src/imagenes/capturamovil.jpg)
+![Protótipo en Figma](src/imagenes/capturatablet.jpg)
 ## Comportamiento de la interfaz de usuario (UI)
 **Creación de cuenta de usuario e inicio de sesión**
 * _Login_ con Firebase:
