@@ -7,8 +7,16 @@ import {
   onAuthStateChanged,
   signOut,
 } from 'firebase/auth';
-import { collection, getDocs, onSnapshot, query, orderBy } from 'firebase/firestore';
+import {
+  collection, query, orderBy, addDoc,
+} from 'firebase/firestore';
 import { auth, provider, db } from '../firebase/firebaseConfig.js';
+
+export const coleccPublic = collection(db, 'publicaciones');
+
+export const creatPost = (data) => {
+  return addDoc(coleccPublic, data);
+};
 
 export const createUserWithPassword = (email, password) => {
   return createUserWithEmailAndPassword(auth, email, password);
@@ -44,7 +52,7 @@ export const signOutUser = () => {
 
 // Colección publicaciones
 
-export const coleccPublic = collection(db, 'publicaciones');
+
 export const qOrdered = query(coleccPublic, orderBy('creacion', 'desc'));
 export {
   createUserWithEmailAndPassword,

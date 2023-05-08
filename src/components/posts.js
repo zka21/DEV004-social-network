@@ -1,7 +1,16 @@
 import {
-  addDoc, documentId, onSnapshot, updateDoc, doc, deleteDoc, arrayUnion, arrayRemove,
+  onSnapshot,
+  updateDoc,
+  doc,
+  deleteDoc,
+  arrayUnion,
+  arrayRemove,
 } from 'firebase/firestore';
-import { signOutUser, coleccPublic, qOrdered } from '../lib/firebaseFunctions';
+
+import {
+  signOutUser, qOrdered, creatPost,
+} from '../lib/firebaseFunctions';
+
 import { auth, db } from '../firebase/firebaseConfig';
 import barril from '../Imagenes/cáo_navbarwhite.png';
 import userfondo from '../Imagenes/usersinfondo.png';
@@ -174,7 +183,7 @@ export const posts = () => {
     e.preventDefault();
 
     const infoUser = userData();
-    addDoc(coleccPublic, {
+    creatPost({
       autor: infoUser.email,
       descripcion: publishButton.description.value,
       creacion: today.toLocaleString('en-GB'),
